@@ -6,7 +6,7 @@ const Navbar = () => (
     <h1 className="main-title">RideEase</h1>
     <ul>
       <li>
-        <Link to="/">Cars</Link>
+        <Link to="/">HomePage</Link>
       </li>
       <li>
         <Link to="/reserve">Reserve</Link>
