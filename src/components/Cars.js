@@ -26,7 +26,6 @@ function Cars() {
         ))}
       </ul>
 
-      
     </section>
   );
 }
