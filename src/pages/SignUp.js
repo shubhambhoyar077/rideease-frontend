@@ -1,4 +1,4 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 const SignUp = () => {
@@ -31,56 +31,65 @@ const SignUp = () => {
     }
   };
   return (
-    <form className="mt-3 container-sm" onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <input
-          type="Name"
-          name="name"
-          className="form-control"
-          id="exampleInputname"
-          placeholder="Full Name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="mb-3">
-        <input
-          type="email"
-          name="email"
-          className="form-control"
-          id="exampleInputEmail1"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="mb-3">
-        <input
-          type="password"
-          name="password"
-          className="form-control"
-          id="exampleInputPassword1"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="mb-3">
-        <input
-          type="password"
-          name="confirmPassword"
-          className="form-control"
-          id="exampleInputPassword1"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={handleChange}
-          style={{ borderColor: isPasswordMatch ? 'green' : 'red' }}
-        />
-      </div>
-      <button type="submit" className="btn btn-primary" disabled={!isFormValid}>
-        SignUp
-      </button>
-    </form>
+    <>
+      <form className="mt-3 container-sm" onSubmit={handleSubmit}>
+        <div className="mb-3">
+          <input
+            type="Name"
+            name="name"
+            className="form-control"
+            id="exampleInputname"
+            placeholder="Full Name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="email"
+            name="email"
+            className="form-control"
+            id="exampleInputEmail1"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="password"
+            name="password"
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="password"
+            name="confirmPassword"
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={handleChange}
+            style={{ borderColor: isPasswordMatch ? 'green' : 'red' }}
+          />
+        </div>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          disabled={!isFormValid}
+        >
+          SignUp
+        </button>
+      </form>
+      <Link to="/sign_in" className="btn btn-primary mt-3">
+        Sign In
+      </Link>
+    </>
   );
 };
 
