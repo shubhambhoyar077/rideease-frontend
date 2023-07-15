@@ -18,14 +18,15 @@ const SignIn = () => {
     setFormValid(Boolean(formData.email) && Boolean(formData.password));
   };
   return (
-    <>
+    <div className="sign-container">
+      <h3>Sign In</h3>
       <form className="mt-3 container-sm" onSubmit={handleSubmit}>
         <div className="mb-3">
           <input
             type="email"
             name="email"
             className="form-control"
-            id="exampleInputEmail1"
+            id="floatingInput"
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
@@ -42,18 +43,24 @@ const SignIn = () => {
             onChange={handleChange}
           />
         </div>
-        <button
-          type="submit"
-          className="btn btn-primary"
-          disabled={!isFormValid}
-        >
-          SignIn
-        </button>
+        <div className="d-flex justify-content-between mb-3">
+          <Link to="/forget_password">Forget Password?</Link>
+          <Link to="/send_conformation">Confirmation email?</Link>
+        </div>
+        <div className="d-flex gap-3">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            disabled={!isFormValid}
+          >
+            SignIn
+          </button>
+          <Link to="/sign_up" className="btn btn-primary">
+            SignUp
+          </Link>
+        </div>
       </form>
-      <Link to="/sign_up" className="btn btn-primary mt-3">
-        SignUp
-      </Link>
-    </>
+    </div>
   );
 };
 

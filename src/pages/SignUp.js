@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import '../styles/sign.css';
 
 const SignUp = () => {
   const [isFormValid, setFormValid] = useState(false);
@@ -31,8 +32,9 @@ const SignUp = () => {
     }
   };
   return (
-    <>
-      <form className="mt-3 container-sm" onSubmit={handleSubmit}>
+    <div className="sign-container">
+      <h3>Sign Up</h3>
+      <form className="mt-3" onSubmit={handleSubmit}>
         <div className="mb-3">
           <input
             type="Name"
@@ -78,18 +80,20 @@ const SignUp = () => {
             style={{ borderColor: isPasswordMatch ? 'green' : 'red' }}
           />
         </div>
-        <button
-          type="submit"
-          className="btn btn-primary"
-          disabled={!isFormValid}
-        >
-          SignUp
-        </button>
+        <div className="d-flex gap-3">
+          <button
+            type="submit"
+            className="btn btn-primary"
+            disabled={!isFormValid}
+          >
+            SignUp
+          </button>
+          <Link to="/sign_in" className="btn btn-primary">
+            Sign In
+          </Link>
+        </div>
       </form>
-      <Link to="/sign_in" className="btn btn-primary mt-3">
-        Sign In
-      </Link>
-    </>
+    </div>
   );
 };
 
