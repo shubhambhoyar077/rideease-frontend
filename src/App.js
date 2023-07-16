@@ -10,6 +10,7 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ForgetPassword from './pages/ForgetPassword';
 import SendConfirmation from './pages/SendConfirmation';
+import ConfirmationPage from './pages/ConfirmationPage';
 
 const App = () => (
   <>
@@ -27,6 +28,7 @@ const App = () => (
         <Route path="/sign_up" element={<SignUp />} />
         <Route path="/forget_password" element={<ForgetPassword />} />
         <Route path="/send_conformation" element={<SendConfirmation />} />
+        <Route path="/users/confirmation" element={<ConfirmationPage />} />
       </Routes>
     </div>
   </>
