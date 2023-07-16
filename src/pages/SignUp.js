@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAuth } from '../redux/auths/authsSlice';
 import '../styles/sign.css';
 
 const SignUp = () => {
+  const { message, isLoading, error } = useSelector((state) => state.auths);
+  const dispatch = useDispatch();
   const [isFormValid, setFormValid] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isPasswordMatch, setPasswordMatch] = useState(true);
@@ -14,7 +18,18 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    const data = {
+      end_point: 'users',
+      method_data: {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user: formData }),
+      },
+    };
+    dispatch(fetchAuth(data));
+    console.log(isLoading);
   };
 
   const handleChange = (e) => {
@@ -93,6 +108,8 @@ const SignUp = () => {
           </Link>
         </div>
       </form>
+      <small>{message}</small>
+      <small>{error}</small>
     </div>
   );
 };
