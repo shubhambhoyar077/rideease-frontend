@@ -15,12 +15,7 @@ export const fetchAuth = createAsyncThunk(
         authData.method_data,
       );
 
-      // if (!response.ok) {
-      //   throw new Error('Error please try again');
-      // }
-
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
