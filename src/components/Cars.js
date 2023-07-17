@@ -19,6 +19,10 @@ function Cars({ startIndex, endIndex }) {
     return `rgb(${r}, ${g}, ${b})`;
   }
 
+  if (cars.length === 0) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <section className="cars-section">
       <ul className="cars-container">
