@@ -14,22 +14,29 @@ export const fetchAuth = createAsyncThunk(
         `http://127.0.0.1:4000/${authData.end_point}`,
         authData.method_data,
       );
-
-      const data = await response.json();
-
+      let data = '';
       if ('sign_in' in authData) {
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          data = await response.json();
+        } else {
+          data = { status: { message: await response.text() } };
+        }
         if (authData.sign_in && data.status.code === 200) {
           const token = response.headers.get('Authorization');
           const userName = data.status.data.name;
           localStorage.setItem('authToken', token);
           localStorage.setItem('name', userName);
         } else {
-          localStorage.setItem('authToken', null);
-          localStorage.setItem('name', null);
+          localStorage.removeItem('authToken');
+          localStorage.removeItem('name');
         }
+      } else {
+        data = await response.json();
       }
       return data;
     } catch (error) {
+      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   },
