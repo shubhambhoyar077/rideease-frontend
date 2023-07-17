@@ -1,5 +1,8 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { setAuth, setAdmin } from './redux/auths/userauthSlice';
 import HomePage from './pages/HomePage';
 import Reserve from './components/Reserve';
 import MyReservations from './components/MyReservations';
@@ -12,25 +15,33 @@ import ForgetPassword from './pages/ForgetPassword';
 import SendConfirmation from './pages/SendConfirmation';
 import ConfirmationPage from './pages/ConfirmationPage';
 
-const App = () => (
-  <>
-    <Navbar />
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/reserve" element={<Reserve />} />
-        <Route path="/myreservations" element={<MyReservations />} />
-        <Route path="/addcars" element={<AddCars />} />
-        <Route path="/deletecars" element={<DeleteCars />} />
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setAuth());
+    dispatch(setAdmin());
+  }, [dispatch]);
 
-        {/* Auth pages routes:- */}
-        <Route path="/sign_in" element={<SignIn />} />
-        <Route path="/sign_up" element={<SignUp />} />
-        <Route path="/forget_password" element={<ForgetPassword />} />
-        <Route path="/send_conformation" element={<SendConfirmation />} />
-        <Route path="/users/confirmation" element={<ConfirmationPage />} />
-      </Routes>
-    </div>
-  </>
-);
+  return (
+    <>
+      <Navbar />
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/reserve" element={<Reserve />} />
+          <Route path="/myreservations" element={<MyReservations />} />
+          <Route path="/addcars" element={<AddCars />} />
+          <Route path="/deletecars" element={<DeleteCars />} />
+
+          {/* Auth pages routes:- */}
+          <Route path="/sign_in" element={<SignIn />} />
+          <Route path="/sign_up" element={<SignUp />} />
+          <Route path="/forget_password" element={<ForgetPassword />} />
+          <Route path="/send_conformation" element={<SendConfirmation />} />
+          <Route path="/users/confirmation" element={<ConfirmationPage />} />
+        </Routes>
+      </div>
+    </>
+  );
+};
 export default App;
