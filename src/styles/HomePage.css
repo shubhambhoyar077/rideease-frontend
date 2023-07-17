@@ -40,6 +40,7 @@
 
 .details-link {
   text-decoration: none;
+  color: #000;
 }
 
 .circle-color {
@@ -58,10 +59,6 @@
   overflow: hidden;
   border-radius: 50%;
   object-fit: cover;
-}
-
-.details-link {
-  color: #000;
 }
 
 .cars-card-details {
@@ -98,7 +95,6 @@
 .btn-cr {
   width: 50px;
   height: 40px;
-  padding: 10 20px;
   border-radius: 0 50% 50% 0;
   background-color: #97bf0f;
   border: none;
@@ -108,7 +104,6 @@
 .btn-cr2 {
   width: 50px;
   height: 40px;
-  padding: 10 20px;
   border-radius: 50% 0 0 50%;
   background-color: #97bf0f;
   border: none;
