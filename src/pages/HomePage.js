@@ -9,6 +9,10 @@ const HomePage = () => {
     setCarouselIndex((prevIndex) => prevIndex + 3);
   };
 
+  const scrollLeft = () => {
+    setCarouselIndex((prevIndex) => prevIndex - 3);
+  };
+
   return (
     <section className="home-page">
       <h1>LATEST MODELS</h1>
