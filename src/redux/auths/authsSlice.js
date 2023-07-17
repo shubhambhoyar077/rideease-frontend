@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   message: '',
-  isLoading: false,
+  isLoading: true,
   error: '',
 };
 
@@ -16,6 +16,18 @@ export const fetchAuth = createAsyncThunk(
       );
 
       const data = await response.json();
+
+      if ('sign_in' in authData) {
+        if (authData.sign_in && data.status.code === 200) {
+          const token = response.headers.get('Authorization');
+          const userName = data.status.data.name;
+          localStorage.setItem('authToken', token);
+          localStorage.setItem('name', userName);
+        } else {
+          localStorage.setItem('authToken', null);
+          localStorage.setItem('name', null);
+        }
+      }
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
