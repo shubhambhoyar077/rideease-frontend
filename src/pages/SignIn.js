@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuth } from '../redux/auths/authsSlice';
@@ -6,6 +6,7 @@ import { setAuth, setAdmin } from '../redux/auths/userauthSlice';
 
 const SignIn = () => {
   const { message, isLoading, error } = useSelector((state) => state.auths);
+  const { isAuth } = useSelector((state) => state.userAuth);
   const dispatch = useDispatch();
   const [isFormValid, setFormValid] = useState(false);
   const [formData, setFormData] = useState({
@@ -38,6 +39,9 @@ const SignIn = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setFormValid(Boolean(formData.email) && Boolean(formData.password));
   };
+  if (isAuth) {
+    return <Navigate to="/" />;
+  }
   return (
     <div className="sign-container">
       <h3>Sign In</h3>

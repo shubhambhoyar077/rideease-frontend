@@ -5,10 +5,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Cross as Hamburger } from 'hamburger-react';
 import '../styles/Navbar.css';
 import { fetchAuth } from '../redux/auths/authsSlice';
+import { setAuth, setAdmin } from '../redux/auths/userauthSlice';
 
 const Navbar = () => {
   const { isAuth } = useSelector((state) => state.userAuth);
-  const { message, error } = useSelector((state) => state.auths);
+  const { message, isLoading, error } = useSelector((state) => state.auths);
   const dispatch = useDispatch();
   const location = useLocation();
   const [showSidebar, setShowSidebar] = useState(false);
@@ -16,7 +17,6 @@ const Navbar = () => {
     window.innerWidth <= 767.98,
   );
 
-  console.log(isAuth);
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 1100);
@@ -38,6 +38,11 @@ const Navbar = () => {
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
+
+  useEffect(() => {
+    dispatch(setAuth());
+    dispatch(setAdmin());
+  }, [dispatch, isLoading]);
 
   const handleLogout = () => {
     const data = {
