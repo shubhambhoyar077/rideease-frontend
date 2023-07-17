@@ -1,16 +1,37 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAuth } from '../redux/auths/authsSlice';
+import { setAuth, setAdmin } from '../redux/auths/userauthSlice';
 
 const SignIn = () => {
+  const { message, isLoading, error } = useSelector((state) => state.auths);
+  const dispatch = useDispatch();
   const [isFormValid, setFormValid] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
 
+  useEffect(() => {
+    dispatch(setAuth());
+    dispatch(setAdmin());
+  }, [dispatch, isLoading]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    const data = {
+      sign_in: true,
+      end_point: 'users/sign_in',
+      method_data: {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user: formData }),
+      },
+    };
+    dispatch(fetchAuth(data));
   };
 
   const handleChange = (e) => {
@@ -60,6 +81,8 @@ const SignIn = () => {
           </Link>
         </div>
       </form>
+      <small>{message}</small>
+      <small>{error}</small>
     </div>
   );
 };
