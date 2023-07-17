@@ -32,12 +32,36 @@
   gap: 20px;
 }
 
+.cars-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-link {
+  text-decoration: none;
+}
+
+.circle-color {
+  width: 13rem;
+  height: 13rem;
+  background-color: #00b7ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .cars-image {
   height: 90%;
   width: 90%;
   overflow: hidden;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.details-link {
+  color: #000;
 }
 
 .cars-card-details {
