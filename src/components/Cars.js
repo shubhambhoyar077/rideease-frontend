@@ -46,4 +46,9 @@ function Cars({ startIndex, endIndex }) {
   );
 }
 
+Cars.propTypes = {
+  startIndex: PropTypes.number.isRequired,
+  endIndex: PropTypes.number.isRequired,
+};
+
 export default Cars;
