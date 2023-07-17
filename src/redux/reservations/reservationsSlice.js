@@ -1,0 +1,56 @@
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+const initialState = {
+  reservations: [],
+  error: null,
+};
+
+export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async () => {
+  const response = await fetch('http://127.0.0.1:4000/api/reservations');
+  const reservationsData = await response.json();
+
+  return reservationsData;
+});
+
+export const cancelReservation = createAsyncThunk('reservations/cancelReservation', async (reservationId) => {
+  const response = await fetch(`http://127.0.0.1:4000/api/reservations/${reservationId}`, {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    return reservationId;
+  }
+  throw new Error('Failed to cancel reservation');
+});
+
+const reservationsSlice = createSlice({
+  name: 'reservations',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchReservations.fulfilled, (state, action) => ({
+        ...state,
+        reservations: action.payload,
+      }))
+      .addCase(
+        cancelReservation.fulfilled,
+        (state, action) => ({
+          ...state,
+          reservations: state.reservations.filter(
+            (reservation) => reservation.reservation.id !== action.payload,
+          ),
+        }),
+      )
+      .addCase(fetchReservations.rejected, (state, action) => ({
+        ...state,
+        error: action.payload,
+      }))
+      .addCase(cancelReservation.rejected, (state, action) => ({
+        ...state,
+        error: action.error.message,
+      }));
+  },
+});
+
+export default reservationsSlice.reducer;
