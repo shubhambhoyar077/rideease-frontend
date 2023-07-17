@@ -14,6 +14,7 @@ import SignUp from './pages/SignUp';
 import ForgetPassword from './pages/ForgetPassword';
 import SendConfirmation from './pages/SendConfirmation';
 import ConfirmationPage from './pages/ConfirmationPage';
+import SetPassword from './pages/SetPassword';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/forget_password" element={<ForgetPassword />} />
           <Route path="/send_conformation" element={<SendConfirmation />} />
           <Route path="/users/confirmation" element={<ConfirmationPage />} />
+          <Route path="/users/password/edit" element={<SetPassword />} />
         </Routes>
       </div>
     </>

@@ -1,22 +1,25 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchAuth } from '../redux/auths/authsSlice';
 
-const ForgetPassword = () => {
-  const { message, error } = useSelector((state) => state.auths);
+const SetPassword = () => {
   const dispatch = useDispatch();
   const [isFormValid, setFormValid] = useState(false);
   const [formData, setFormData] = useState({
-    email: '',
+    password: '',
+    password_confirmation: '',
+    reset_password_token: '',
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const urlParams = new URLSearchParams(window.location.search);
+    formData.reset_password_token = urlParams.get('reset_password_token');
     const data = {
       end_point: 'users/password',
       method_data: {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -28,7 +31,9 @@ const ForgetPassword = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setFormValid(Boolean(formData.email));
+    setFormValid(
+      Boolean(formData.password) && Boolean(formData.password_confirmation),
+    );
   };
   return (
     <div className="sign-container">
@@ -36,12 +41,23 @@ const ForgetPassword = () => {
       <form className="mt-3 container-sm" onSubmit={handleSubmit}>
         <div className="mb-3">
           <input
-            type="email"
-            name="email"
+            type="password"
+            name="password"
             className="form-control"
-            id="floatingInput"
-            placeholder="Email"
-            value={formData.email}
+            id="exampleInputPassword1"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="password"
+            name="password_confirmation"
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Confirm Password"
+            value={formData.password_confirmation}
             onChange={handleChange}
           />
         </div>
@@ -51,17 +67,15 @@ const ForgetPassword = () => {
             className="btn btn-primary"
             disabled={!isFormValid}
           >
-            Send email
+            Change Password
           </button>
           <Link to="/sign_in" className="btn btn-primary">
             SignIn
           </Link>
         </div>
       </form>
-      <small>{message}</small>
-      <small>{error}</small>
     </div>
   );
 };
 
-export default ForgetPassword;
+export default SetPassword;
