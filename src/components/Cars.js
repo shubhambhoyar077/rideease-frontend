@@ -12,6 +12,13 @@ function Cars({ startIndex, endIndex }) {
     dispatch(fetchCars());
   }, [dispatch]);
 
+  function getRandomColor() {
+    const r = Math.floor(Math.random() * 155) + 100;
+    const g = Math.floor(Math.random() * 155) + 100;
+    const b = Math.floor(Math.random() * 155) + 100;
+    return `rgb(${r}, ${g}, ${b})`;
+  }
+
   return (
     <section className="cars-section">
       <ul className="cars-container">
