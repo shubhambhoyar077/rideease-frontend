@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAuth } from '../redux/auths/authsSlice';
 
 const SendConfirmation = () => {
+  const { message, isLoading, error } = useSelector((state) => state.auths);
+  const dispatch = useDispatch();
   const [isFormValid, setFormValid] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -9,7 +13,18 @@ const SendConfirmation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    const data = {
+      end_point: 'users/confirmation',
+      method_data: {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user: formData }),
+      },
+    };
+    dispatch(fetchAuth(data));
+    console.log(isLoading);
   };
 
   const handleChange = (e) => {
@@ -18,7 +33,7 @@ const SendConfirmation = () => {
   };
   return (
     <div className="sign-container">
-      <h3>Send configuration email</h3>
+      <h3>Send configuration email again</h3>
       <form className="mt-3 container-sm" onSubmit={handleSubmit}>
         <div className="mb-3">
           <input
@@ -44,6 +59,8 @@ const SendConfirmation = () => {
           </Link>
         </div>
       </form>
+      <small>{message}</small>
+      <small>{error}</small>
     </div>
   );
 };
