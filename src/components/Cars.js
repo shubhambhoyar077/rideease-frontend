@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { fetchCars } from '../redux/cars/carsSlice';
 
-function Cars() {
+function Cars({ startIndex, endIndex }) {
   const cars = useSelector((state) => state.cars.cars) || [];
   const dispatch = useDispatch();
 
@@ -13,20 +15,26 @@ function Cars() {
   return (
     <section className="cars-section">
       <ul className="cars-container">
-        {cars.map((car) => (
-          <li key={car.id}>
-            <div className="cars-card">
-              <img src={car.image} alt={car.name} className="cars-image" />
-              <div className="cars-card-details">
-                <h5>{car.name}</h5>
-                <p className="dots2">..............................</p>
-                <p className="car-details">{car.details}</p>
+        {cars.slice(startIndex, endIndex).map((car) => (
+          <li key={car.id} className="cars-list">
+            <Link to={`cars/details/${car.id}`} className="details-link">
+              <div className="cars-card">
+                <div className="circle-color" style={{ backgroundColor: getRandomColor() }}>
+                  <img src={car.image} alt={car.name} className="cars-image" />
+                </div>
+                <div className="cars-card-details">
+                  <h5 className="car-name">{car.name}</h5>
+                  <p className="dots">..............................</p>
+                  <p className="car-details">
+                    {car.details.slice(0, 30)}
+                    {car.details.length > 30 && '...' }
+                  </p>
+                </div>
               </div>
-            </div>
+            </Link>
           </li>
         ))}
       </ul>
-
     </section>
   );
 }

@@ -18,15 +18,11 @@
   font-weight: bold;
 }
 
-.dots {
-  color: #d3d4d4;
-  font-size: 24px;
-  margin-bottom: 30px;
-}
-
 .cars-container {
   display: flex;
-  gap: 100px;
+  gap: 150px;
+  margin: 0;
+  padding: 0;
 }
 
 .cars-card {
@@ -37,24 +33,26 @@
 }
 
 .cars-image {
-  width: 15rem;
-  height: 15rem;
-  border: 5px #00b7ff solid;
+  height: 90%;
+  width: 90%;
+  overflow: hidden;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .cars-card-details {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 90%;
 }
 
-.dots2 {
+.dots {
   color: #d3d4d4;
   font-size: 24px;
 }
 
 .car-details {
-  font-size: 14px;
+  font-size: 12px;
   color: #a2a4a4;
 }
