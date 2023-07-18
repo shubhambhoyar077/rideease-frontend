@@ -28,9 +28,8 @@
 .reservation-container input,
 .select-wrapper {
   background-color: rgba(0, 0, 0, 0.175);
-  border: 2px solid white;
+  border: 1px solid white;
   color: white;
-  border: none;
   margin-right: 4px;
 }
 
@@ -47,6 +46,7 @@
   outline: none;
   color: white;
 }
+
 .reservation-container select option {
   color: black;
 }
