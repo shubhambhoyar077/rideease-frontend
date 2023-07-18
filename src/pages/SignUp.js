@@ -108,7 +108,7 @@ const SignUp = () => {
           </Link>
         </div>
       </form>
-      <small>{message}</small>
+      <small className="text-danger">{message}</small>
       <small>{error}</small>
     </div>
   );

@@ -167,7 +167,7 @@ const Navbar = () => {
                 </>
               )}
             </div>
-            <small>{message}</small>
+            <small className="text-danger">{message}</small>
             <small>{error}</small>
           </div>
         </nav>
