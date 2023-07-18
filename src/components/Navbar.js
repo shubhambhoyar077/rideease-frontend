@@ -83,60 +83,68 @@ const Navbar = () => {
                   Cars
                 </Link>
               </li>
-              <li
-                className={`nav-item ${
-                  location.pathname === '/reserve' ? 'active' : ''
-                }`}
-              >
-                <Link
-                  to="/reserve"
-                  className="nav-link"
-                  onClick={() => setShowSidebar(false)}
+              {isAuth && (
+                <li
+                  className={`nav-item ${
+                    location.pathname === '/reserve' ? 'active' : ''
+                  }`}
                 >
-                  Reserve
-                </Link>
-              </li>
-              <li
-                className={`nav-item ${
-                  location.pathname === '/myreservations' ? 'active' : ''
-                }`}
-              >
-                <Link
-                  to="/myreservations"
-                  className="nav-link"
-                  onClick={() => setShowSidebar(false)}
+                  <Link
+                    to="/reserve"
+                    className="nav-link"
+                    onClick={() => setShowSidebar(false)}
+                  >
+                    Reserve
+                  </Link>
+                </li>
+              )}
+              {isAuth && (
+                <li
+                  className={`nav-item ${
+                    location.pathname === '/myreservations' ? 'active' : ''
+                  }`}
                 >
-                  My Reservations
-                </Link>
-              </li>
-              <li
-                className={`nav-item ${
-                  location.pathname === '/addcars' ? 'active' : ''
-                }`}
-              >
-                <Link
-                  to="/addcars"
-                  className="nav-link"
-                  onClick={() => setShowSidebar(false)}
+                  <Link
+                    to="/myreservations"
+                    className="nav-link"
+                    onClick={() => setShowSidebar(false)}
+                  >
+                    My Reservations
+                  </Link>
+                </li>
+              )}
+              {isAuth && (
+                <li
+                  className={`nav-item ${
+                    location.pathname === '/addcars' ? 'active' : ''
+                  }`}
                 >
-                  Add Cars
-                </Link>
-              </li>
-              <li
-                className={`nav-item ${
-                  location.pathname === '/deletecars' ? 'active' : ''
-                }`}
-              >
-                <Link
-                  to="/deletecars"
-                  className="nav-link"
-                  onClick={() => setShowSidebar(false)}
+                  <Link
+                    to="/addcars"
+                    className="nav-link"
+                    onClick={() => setShowSidebar(false)}
+                  >
+                    Add Cars
+                  </Link>
+                </li>
+              )}
+              {isAuth && (
+                <li
+                  className={`nav-item ${
+                    location.pathname === '/deletecars' ? 'active' : ''
+                  }`}
                 >
-                  Delete Cars
-                </Link>
-              </li>
+                  <Link
+                    to="/deletecars"
+                    className="nav-link"
+                    onClick={() => setShowSidebar(false)}
+                  >
+                    Delete Cars
+                  </Link>
+                </li>
+              )}
             </ul>
-            <div className="d-flex gap-3">
+            <div className="d-flex gap-3 mt-3">
               {!isAuth && (
                 <>
                   <Link to="sign_up" className="btn btn-primary">
