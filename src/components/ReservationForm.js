@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAuth } from '../redux/auths/authsSlice';
 
-const ReservationForm = () => {
+const ReservationForm = ({ selectedCarId, carSelected }) => {
   const fullName = localStorage.getItem('name');
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars.cars) || [];
@@ -19,6 +20,9 @@ const ReservationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (selectedCarId) {
+      formData.service_id = selectedCarId;
+    }
     const data = {
       end_point: '/api/reservations',
       method_data: {
@@ -31,7 +35,6 @@ const ReservationForm = () => {
       },
     };
     dispatch(fetchAuth(data));
-    console.log(formData);
   };
 
   const handleChange = (e) => {
@@ -51,21 +54,23 @@ const ReservationForm = () => {
         disabled
       />
       <div className="row g-2 mb-3">
-        <div className="col select-wrapper">
-          <select
-            className="form-select"
-            value={formData.service_id}
-            onChange={handleChange}
-            name="service_id"
-          >
-            <option value="">Select a service</option>
-            {cars.map((car) => (
-              <option key={car.id} value={car.id}>
-                {car.name}
-              </option>
-            ))}
-          </select>
-        </div>
+        {!carSelected && (
+          <div className="col select-wrapper">
+            <select
+              className="form-select"
+              value={formData.service_id}
+              onChange={handleChange}
+              name="service_id"
+            >
+              <option value="">Select a service</option>
+              {cars.map((car) => (
+                <option key={car.id} value={car.id}>
+                  {car.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
         <div className="col select-wrapper">
           <select
             className="form-select"
@@ -94,6 +99,16 @@ const ReservationForm = () => {
       </button>
     </form>
   );
+};
+
+ReservationForm.propTypes = {
+  selectedCarId: PropTypes.number,
+  carSelected: PropTypes.bool,
+};
+
+ReservationForm.defaultProps = {
+  selectedCarId: 0,
+  carSelected: false,
 };
 
 export default ReservationForm;

@@ -18,7 +18,7 @@ const ReserveRide = () => {
         {' '}
         Test-Ride
       </h1>
-      <ReservationForm />
+      <ReservationForm selectedCarID={selectedCar.id} carSelected />
     </div>
   );
 };
