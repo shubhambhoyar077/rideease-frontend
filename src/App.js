@@ -16,6 +16,7 @@ import SendConfirmation from './pages/SendConfirmation';
 import ConfirmationPage from './pages/ConfirmationPage';
 import SetPassword from './pages/SetPassword';
 import Private from './components/PrivateRoute';
+import ReserveRide from './components/ReserveRide';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -59,6 +60,14 @@ const App = () => {
               element={(
                 <Private>
                   <DeleteCars />
+                </Private>
+              )}
+            />
+            <Route
+              path="/car/:id/reserve"
+              element={(
+                <Private>
+                  <ReserveRide />
                 </Private>
               )}
             />

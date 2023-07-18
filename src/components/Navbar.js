@@ -14,7 +14,7 @@ const Navbar = () => {
   const location = useLocation();
   const [showSidebar, setShowSidebar] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(
-    window.innerWidth <= 767.98,
+    window.innerWidth <= 767.98
   );
 
   useEffect(() => {
