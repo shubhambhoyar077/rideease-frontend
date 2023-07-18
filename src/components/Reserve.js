@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAuth } from '../redux/auths/authsSlice';
+import '../styles/reservation.css';
 
 const Reserve = () => {
   const fullName = localStorage.getItem('name');
@@ -38,71 +39,72 @@ const Reserve = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // const selectedCar = cars.find((obj) => obj.id === formData.service_id);
+  // const formStyle = {
+  //   backgroundImage: `url(${selectedCar && selectedCar.image})`,
+  //   backgroundSize: 'contain',
+  //   backgroundPosition: 'center',
+  //   backgroundRepeat: 'no-repeat',
+  // };
+
   return (
-    <form
-      onSubmit={handleSubmit}
-      id="reservation-form"
-      className="d-flex flex-column align-items-center g-6"
-    >
-      <label htmlFor="userId">
-        Name:
+    <div className="reservation-container">
+      <h1>Create New Reservation</h1>
+      <form
+        onSubmit={handleSubmit}
+        id="reservation-form"
+        className="d-flex flex-column align-items-center g-4"
+      >
         <input
-          className="p-2 form-control"
+          className="form-control mb-3"
           type="text"
           value={fullName}
           disabled
         />
-      </label>
-      <label htmlFor="ServiceId">
-        <div className="select-wrapper">
-          <select
-            className="p-2 px-0"
-            value={formData.service_id}
-            onChange={handleChange}
-            name="service_id"
-          >
-            <option value="">Select a service</option>
-            {cars.map((car) => (
-              <option key={car.id} value={car.id}>
-                {car.name}
-              </option>
-            ))}
-          </select>
-          <i className="fa-solid fa-angle-down" />
+        <div className="row g-2 mb-3">
+          <div className="col select-wrapper">
+            <select
+              className="form-select"
+              value={formData.service_id}
+              onChange={handleChange}
+              name="service_id"
+            >
+              <option value="">Select a service</option>
+              {cars.map((car) => (
+                <option key={car.id} value={car.id}>
+                  {car.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="col select-wrapper">
+            <select
+              className="form-select"
+              value={formData.city}
+              onChange={handleChange}
+              name="city"
+            >
+              <option value="">Select a location</option>
+              {locations.map((location) => (
+                <option key={location.id} value={location.name}>
+                  {location.name}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
-      </label>
-      <label htmlFor="locationId">
-        <div className="select-wrapper">
-          <select
-            className="p-2 px-0"
-            value={formData.city}
-            onChange={handleChange}
-            name="city"
-          >
-            <option value="">Select a location</option>
-            {locations.map((location) => (
-              <option key={location.id} value={location.name}>
-                {location.name}
-              </option>
-            ))}
-          </select>
-          <i className="fa-solid fa-angle-down" />
-        </div>
-      </label>
-      <label htmlFor="startDate">
-        Date:&nbsp;
         <input
-          className="p-2 form-control"
+          className="form-control mb-3"
           type="date"
           value={formData.date}
           onChange={handleChange}
           name="date"
         />
-      </label>
-      <button type="submit" className="btn btn-light text-success">
-        Create Reservation
-      </button>
-    </form>
+        <button type="submit" className="btn btn-light text-success">
+          Create Reservation
+        </button>
+      </form>
+    </div>
   );
 };
 
