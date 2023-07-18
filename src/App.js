@@ -25,22 +25,23 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
       <div className="App">
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/reserve" element={<Reserve />} />
-          <Route path="/myreservations" element={<MyReservations />} />
-          <Route path="/addcars" element={<AddCars />} />
-          <Route path="/deletecars" element={<DeleteCars />} />
+          <Route path="/" element={<Navbar />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/reserve" element={<Reserve />} />
+            <Route path="/myreservations" element={<MyReservations />} />
+            <Route path="/addcars" element={<AddCars />} />
+            <Route path="/deletecars" element={<DeleteCars />} />
 
-          {/* Auth pages routes:- */}
-          <Route path="/sign_in" element={<SignIn />} />
-          <Route path="/sign_up" element={<SignUp />} />
-          <Route path="/forget_password" element={<ForgetPassword />} />
-          <Route path="/send_conformation" element={<SendConfirmation />} />
-          <Route path="/users/confirmation" element={<ConfirmationPage />} />
-          <Route path="/users/password/edit" element={<SetPassword />} />
+            {/* Auth pages routes:- */}
+            <Route path="/sign_in" element={<SignIn />} />
+            <Route path="/sign_up" element={<SignUp />} />
+            <Route path="/forget_password" element={<ForgetPassword />} />
+            <Route path="/send_conformation" element={<SendConfirmation />} />
+            <Route path="/users/confirmation" element={<ConfirmationPage />} />
+            <Route path="/users/password/edit" element={<SetPassword />} />
+          </Route>
         </Routes>
       </div>
     </>
