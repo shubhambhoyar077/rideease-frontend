@@ -30,10 +30,7 @@ function DeleteCars() {
           <li key={car.id} className="delete-cars-container">
             <Link to={`car/${car.id}`} className="delete-cars-card">
               <div>
-                <div
-                  className="circle-color"
-                  style={{ backgroundColor: getRandomColor() }}
-                >
+                <div className="circle-color">
                   <img src={car.image} alt={car.name} className="cars-image" />
                 </div>
                 <h5 className="delete-car-name">{car.name}</h5>
