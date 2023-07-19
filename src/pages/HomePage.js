@@ -22,7 +22,7 @@ const HomePage = () => {
         <div className="carousel-buttons">
           <button
             type="button"
-            className="btn-cr"
+            className="btn-cr2"
             onClick={scrollLeft}
             disabled={carouselIndex === 0}
           >
@@ -30,7 +30,7 @@ const HomePage = () => {
           </button>
           <button
             type="button"
-            className="btn-cr2"
+            className="btn-cr"
             onClick={scrollRight}
             disabled={carouselIndex >= 3}
           >

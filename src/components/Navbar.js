@@ -60,7 +60,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="container-fluid" style={{ position: 'fixed' }}>
+    <div className="container-fluid p-0" style={{ position: 'fixed' }}>
       <div className="row">
         <nav
           className={`col-lg-2 col-md-3 col-sm-4 col-12 bg-light sidebar ${
@@ -171,7 +171,7 @@ const Navbar = () => {
             <small>{error}</small>
           </div>
         </nav>
-        <main className="col-lg-10 col-md-9 col-sm-8 col-12">
+        <main className="col-lg-10 col-12">
           <Outlet />
         </main>
         {isSmallScreen && (

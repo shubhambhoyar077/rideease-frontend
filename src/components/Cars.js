@@ -28,9 +28,12 @@ function Cars({ startIndex, endIndex }) {
       <ul className="cars-container">
         {cars.slice(startIndex, endIndex).map((car) => (
           <li key={car.id} className="cars-list">
-            <Link to={`cars/details/${car.id}`} className="details-link">
+            <Link to={`car/${car.id}`} className="details-link">
               <div className="cars-card">
-                <div className="circle-color" style={{ backgroundColor: getRandomColor() }}>
+                <div
+                  className="circle-color"
+                  style={{ backgroundColor: getRandomColor() }}
+                >
                   <img src={car.image} alt={car.name} className="cars-image" />
                 </div>
                 <div className="cars-card-details">
@@ -38,7 +41,7 @@ function Cars({ startIndex, endIndex }) {
                   <p className="dots">..............................</p>
                   <p className="car-details">
                     {car.details.slice(0, 30)}
-                    {car.details.length > 30 && '...' }
+                    {car.details.length > 30 && '...'}
                   </p>
                 </div>
               </div>

@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 85vh;
 }
 
 .home-page-text {
@@ -44,8 +44,8 @@
 }
 
 .circle-color {
-  width: 13rem;
-  height: 13rem;
+  width: 18rem;
+  height: 18rem;
   background-color: #00b7ff;
   border-radius: 50%;
   display: flex;
@@ -81,7 +81,7 @@
 .carousel-buttons {
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
   margin-top: -260px;
 }
 
@@ -108,4 +108,25 @@
   background-color: #97bf0f;
   border: none;
   color: #fff;
+}
+
+.cars-container .cars-list {
+  display: none; /* Hide all li elements by default */
+}
+
+.cars-container .cars-list:nth-child(-n + 1) {
+  display: flex;
+}
+
+/* Show all li elements on large screens and above */
+@media (min-width: 1680px) {
+  .cars-container .cars-list {
+    display: flex;
+  }
+}
+
+@media (min-width: 991px) {
+  .cars-container .cars-list:nth-child(-n + 2) {
+    display: flex;
+  }
 }
