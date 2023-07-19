@@ -34,7 +34,7 @@ function DeleteCars() {
     <section className="cars-section">
       <ul className="delete-cars-list">
         {cars.map((car) => (
-          <li key={car.id}>
+          <li key={car.id} className="delete-cars-container">
             <Link to={`car/${car.id}`} className="delete-cars-card">
               <div>
                 <div
@@ -43,12 +43,12 @@ function DeleteCars() {
                 >
                   <img src={car.image} alt={car.name} className="cars-image" />
                 </div>
-                <h5 className="car-name">{car.name}</h5>
+                <h5 className="delete-car-name">{car.name}</h5>
               </div>
-              <button className="delete-button" type="button" onClick={() => handleDelete(car.id)}>
-                Delete Car
-              </button>
             </Link>
+            <button className="delete-button" type="button" onClick={() => handleDelete(car.id)}>
+              Delete Car
+            </button>
           </li>
         ))}
       </ul>

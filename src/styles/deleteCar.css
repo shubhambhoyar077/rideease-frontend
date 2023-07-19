@@ -12,15 +12,25 @@
   gap: 3rem;
 }
 
+.delete-cars-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .delete-cars-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  text-decoration: none;
+  color: #000;
 }
 
 .delete-button {
   background-color: #ff0000;
   color: #fff;
-  padding: 5px;
+  border: navajowhite;
+  padding: 10px 20px;
+  border-radius: 5px;
 }
