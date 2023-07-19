@@ -48,6 +48,10 @@ const carsSlice = createSlice({
         error: action.payload,
       }),
     );
+    builder.addCase(deleteCar.fulfilled, (state, action) => ({
+      ...state,
+      messages: action.payload,
+    }));
   },
 });
 
