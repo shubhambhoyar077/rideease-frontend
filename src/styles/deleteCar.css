@@ -1,5 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
 .delete-cars-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 3rem;
+}
+
+.delete-cars-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.delete-button {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 5px;
 }

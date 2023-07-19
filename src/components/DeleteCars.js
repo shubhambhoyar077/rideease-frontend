@@ -35,7 +35,7 @@ function DeleteCars() {
       <ul className="delete-cars-list">
         {cars.map((car) => (
           <li key={car.id}>
-            <Link to={`car/${car.id}`}>
+            <Link to={`car/${car.id}`} className="delete-cars-card">
               <div>
                 <div
                   className="circle-color"
@@ -43,9 +43,7 @@ function DeleteCars() {
                 >
                   <img src={car.image} alt={car.name} className="cars-image" />
                 </div>
-                <div className="cars-card-details">
-                  <h5 className="car-name">{car.name}</h5>
-                </div>
+                <h5 className="car-name">{car.name}</h5>
               </div>
               <button className="delete-button" type="button" onClick={() => handleDelete(car.id)}>
                 Delete Car
