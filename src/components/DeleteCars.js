@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchCars, deleteCar } from '../redux/cars/carsSlice';
+import '../styles/deleteCar.css';
 
 function DeleteCars() {
   const cars = useSelector((state) => state.cars.cars) || [];
@@ -31,9 +32,9 @@ function DeleteCars() {
 
   return (
     <section className="cars-section">
-      <ul>
+      <ul className="delete-cars-list">
         {cars.map((car) => (
-          <li key={car.id} className="delete-cars-list">
+          <li key={car.id}>
             <Link to={`car/${car.id}`}>
               <div>
                 <div
