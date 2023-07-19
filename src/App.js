@@ -1,7 +1,6 @@
-import './App.css';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { setAuth, setAdmin } from './redux/auths/userauthSlice';
 import HomePage from './pages/HomePage';
 import Reserve from './components/Reserve';
@@ -17,6 +16,7 @@ import ConfirmationPage from './pages/ConfirmationPage';
 import SetPassword from './pages/SetPassword';
 import Private from './components/PrivateRoute';
 import ReserveRide from './components/ReserveRide';
+import CarDetails from './components/CarDetails';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -31,6 +31,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Navbar />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/car/:id" element={<CarDetails />} />
             <Route
               path="/reserve"
               element={(
