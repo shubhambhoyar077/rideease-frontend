@@ -32,7 +32,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" style={{ position: 'fixed' }}>
       <div className="row">
         <nav className={`col-lg-2 col-md-3 col-sm-4 col-12 bg-light sidebar ${showSidebar ? 'show' : ''}`}>
           <div className="sidebar-sticky">
