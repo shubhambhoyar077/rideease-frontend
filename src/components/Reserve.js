@@ -1,9 +1,10 @@
-import React from 'react';
+import '../styles/reservation.css';
+import ReservationForm from './ReservationForm';
 
-function Reserve() {
-  return (
-    <div>Reserve</div>
-  );
-}
-
+const Reserve = () => (
+  <div className="reservation-container">
+    <h1>Create New Reservation</h1>
+    <ReservationForm />
+  </div>
+);
 export default Reserve;

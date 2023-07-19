@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCarDetails } from '../redux/details/detailsSlice';
 import '../styles/CarDetails.css';
@@ -50,15 +50,13 @@ function CarDetails() {
               {car.duration}
             </span>
           </p>
-          <button type="button" className="btn btn-primary">
+          <Link to={`/car/${id}/reserve`} className="btn btn-primary">
             <i className="fa fa-tag" />
             {' '}
             Reserve
-          </button>
+          </Link>
         </div>
-
       </div>
-
     </div>
   );
 }

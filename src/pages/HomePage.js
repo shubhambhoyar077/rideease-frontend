@@ -6,11 +6,11 @@ const HomePage = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
 
   const scrollRight = () => {
-    setCarouselIndex((prevIndex) => prevIndex + 3);
+    setCarouselIndex((prevIndex) => prevIndex + 1);
   };
 
   const scrollLeft = () => {
-    setCarouselIndex((prevIndex) => prevIndex - 3);
+    setCarouselIndex((prevIndex) => prevIndex - 1);
   };
 
   return (
@@ -20,8 +20,22 @@ const HomePage = () => {
       <div className="carousel-container">
         <Cars startIndex={carouselIndex} endIndex={carouselIndex + 3} />
         <div className="carousel-buttons">
-          <button type="button" className="btn-cr" onClick={scrollLeft} disabled={carouselIndex === 0}>{'<'}</button>
-          <button type="button" className="btn-cr2" onClick={scrollRight} disabled={carouselIndex >= 3}>{'>'}</button>
+          <button
+            type="button"
+            className="btn-cr2"
+            onClick={scrollLeft}
+            disabled={carouselIndex === 0}
+          >
+            {'<'}
+          </button>
+          <button
+            type="button"
+            className="btn-cr"
+            onClick={scrollRight}
+            disabled={carouselIndex >= 3}
+          >
+            {'>'}
+          </button>
         </div>
       </div>
     </section>
