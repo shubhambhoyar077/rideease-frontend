@@ -8,7 +8,7 @@ import { fetchAuth } from '../redux/auths/authsSlice';
 import { setAuth, setAdmin } from '../redux/auths/userauthSlice';
 
 const Navbar = () => {
-  const { isAuth } = useSelector((state) => state.userAuth);
+  const { isAuth, isAdmin } = useSelector((state) => state.userAuth);
   const { message, isLoading, error } = useSelector((state) => state.auths);
   const dispatch = useDispatch();
   const location = useLocation();
@@ -113,7 +113,7 @@ const Navbar = () => {
                   </Link>
                 </li>
               )}
-              {isAuth && (
+              {isAuth && isAdmin && (
                 <li
                   className={`nav-item ${
                     location.pathname === '/addcars' ? 'active' : ''
@@ -128,7 +128,7 @@ const Navbar = () => {
                   </Link>
                 </li>
               )}
-              {isAuth && (
+              {isAuth && isAdmin && (
                 <li
                   className={`nav-item ${
                     location.pathname === '/deletecars' ? 'active' : ''

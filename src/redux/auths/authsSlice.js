@@ -25,11 +25,14 @@ export const fetchAuth = createAsyncThunk(
         if (authData.sign_in && data.status.code === 200) {
           const token = response.headers.get('Authorization');
           const userName = data.status.data.name;
+          const { role } = data.status.data;
           localStorage.setItem('authToken', token);
           localStorage.setItem('name', userName);
+          localStorage.setItem('role', role);
         } else {
           localStorage.removeItem('authToken');
           localStorage.removeItem('name');
+          localStorage.removeItem('role');
         }
       } else {
         data = await response.json();
