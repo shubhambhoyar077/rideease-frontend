@@ -24,7 +24,7 @@ function CarDetails() {
           <img src={car.image} alt={car.name} className="big-image" />
         </div>
         <div className="car-details-info">
-          <h2>{car.name}</h2>
+          <h1>{car.name}</h1>
           <p>
             <span>
               {car.details}
