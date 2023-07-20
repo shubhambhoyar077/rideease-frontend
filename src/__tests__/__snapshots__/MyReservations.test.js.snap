@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyReservations Component should render correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="text-center"
+  >
+    <h1
+      style={
+        Object {
+          "padding": "2%",
+        }
+      }
+    >
+      My Reservations
+    </h1>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-md-11 mb-4"
+    >
+      <div
+        className="card flex-md-row"
+      >
+        <div
+          className="card-body"
+        >
+          <h5
+            className="card-title"
+          >
+            Test Service
+          </h5>
+          <p
+            className="card-text"
+          >
+            City:
+             
+            Test City
+          </p>
+          <p
+            className="card-text"
+          >
+            Date:
+             
+            2023-07-15
+          </p>
+          <button
+            className="btn btn-danger"
+            onClick={[Function]}
+            type="button"
+          >
+            Cancel
+          </button>
+        </div>
+        <img
+          alt="Test Service"
+          className="card-img-right rounded-circle"
+          src="test.jpg"
+          style={
+            Object {
+              "width": "20%",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
