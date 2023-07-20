@@ -46,7 +46,7 @@ function CarDetails() {
               {car.duration}
             </span>
           </p>
-          <Link to={`/car/${id}/reserve`} className="btn">
+          <Link to={`/car/${id}/reserve`} className="btn-res">
             <i className="fa fa-tag" />
             {' '}
             Reserve
