@@ -19,14 +19,18 @@ function CarDetails() {
   }
 
   return (
-    <div className="car-details-container container">
-      <div className="row">
-        <div className="car-details-image col-6">
+      <div className="car-details-container">
+        <div className="car-details-img">
           <img src={car.image} alt={car.name} className="big-image" />
         </div>
-        <div className="car-details-info col-6">
+        <div className="car-details-info">
           <h2>{car.name}</h2>
           <p>
+            <span>
+              {car.details}
+            </span>
+          </p>
+          <p className="car-details-infos">
             <span>Price:</span>
             {' '}
             <span>
@@ -34,15 +38,7 @@ function CarDetails() {
               {car.price}
             </span>
           </p>
-          <p>
-            <span>Details:</span>
-            {' '}
-            <span>
-              {' '}
-              {car.details}
-            </span>
-          </p>
-          <p>
+          <p className="car-details-infos">
             <span> Duration:</span>
             {' '}
             <span>
@@ -50,14 +46,13 @@ function CarDetails() {
               {car.duration}
             </span>
           </p>
-          <Link to={`/car/${id}/reserve`} className="btn btn-primary">
+          <Link to={`/car/${id}/reserve`} className="btn">
             <i className="fa fa-tag" />
             {' '}
             Reserve
           </Link>
         </div>
       </div>
-    </div>
   );
 }
 
