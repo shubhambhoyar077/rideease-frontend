@@ -8,7 +8,6 @@ const mockStore = configureMockStore([]);
 
 describe('MyReservations Component', () => {
   it('should render correctly', () => {
-    // Mock the store state with any initial data the component needs
     const store = mockStore({
       reservations: {
         reservations: [
@@ -22,7 +21,7 @@ describe('MyReservations Component', () => {
     const tree = renderer.create(
       <Provider store={store}>
         <MyReservations />
-      </Provider>
+      </Provider>,
     ).toJSON();
 
     expect(tree).toMatchSnapshot();
