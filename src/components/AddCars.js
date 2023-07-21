@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
 
+const formStyle = {
+  maxWidth: '400px',
+  margin: '0 auto',
+  padding: '20px',
+  border: '1px solid #ccc',
+  borderRadius: '4px',
+  backgroundColor: '#f7f7f7',
+};
+
+const buttonStyle = {
+  marginTop: '10px',
+};
+
 function AddCars() {
   const [carData, setCarData] = useState({
     make: '',
@@ -25,6 +38,13 @@ function AddCars() {
     e.preventDefault();
     // implement the logic to submit
     // the form data to your backend or perform other actions.
+    const requiredFields = formFields.filter((field) => field.required);
+    const emptyFields = requiredFields.filter((field) => !carData[field.name]);
+
+    if (emptyFields.length > 0) {
+      alert('Please fill in all required fields.');
+      return;
+    }
     console.log(carData);
     // Reset the form after submission
     setCarData({
@@ -36,9 +56,12 @@ function AddCars() {
   };
 
   return (
-    <div>
-      <h1>Add a New Car</h1>
-      <form onSubmit={handleSubmit}>
+    <div style={{
+      display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh',
+    }}
+    >
+      <form style={formStyle} onSubmit={handleSubmit}>
+        <h1>Add a New Car</h1>
         {formFields.map((field) => (
           <div key={field.name}>
             <label htmlFor={field.name}>
@@ -59,12 +82,13 @@ function AddCars() {
                 id={field.name}
                 value={carData[field.name]}
                 onChange={handleChange}
+                required={field.required}
               />
             )}
           </div>
         ))}
         <div>
-          <button type="submit">Add Car</button>
+          <button type="submit" style={buttonStyle}>Add Car</button>
         </div>
       </form>
     </div>
