@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   message: '',
-  isLoading: true,
+  isLoading: false,
   error: '',
 };
 
@@ -12,16 +12,22 @@ export const fetchAuth = createAsyncThunk(
     try {
       const response = await fetch(
         `http://127.0.0.1:4000/${authData.end_point}`,
-        authData.method_data,
+        authData.method_data
       );
       let data = '';
-      if ('sign_in' in authData) {
+      if (!response.ok) {
         const contentType = response.headers.get('content-type');
         if (contentType && contentType.includes('application/json')) {
           data = await response.json();
         } else {
           data = { status: { message: await response.text() } };
         }
+        throw new Error(data.status.message);
+      }
+
+      data = await response.json();
+
+      if ('sign_in' in authData) {
         if (authData.sign_in && data.status.code === 200) {
           const token = response.headers.get('Authorization');
           const userName = data.status.data.name;
@@ -34,15 +40,12 @@ export const fetchAuth = createAsyncThunk(
           localStorage.removeItem('name');
           localStorage.removeItem('role');
         }
-      } else {
-        data = await response.json();
       }
       return data;
     } catch (error) {
-      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
-  },
+  }
 );
 
 const authsSlice = createSlice({

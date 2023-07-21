@@ -14,7 +14,7 @@ const Navbar = () => {
   const location = useLocation();
   const [showSidebar, setShowSidebar] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(
-    window.innerWidth <= 767.98,
+    window.innerWidth <= 767.98
   );
 
   useEffect(() => {
@@ -167,8 +167,8 @@ const Navbar = () => {
                 </>
               )}
             </div>
-            <small className="text-danger">{message}</small>
-            <small>{error}</small>
+            <small className="text-success">{message}</small>
+            <small className="text-danger">{error}</small>
           </div>
         </nav>
         <main className="col-lg-10 col-12">
