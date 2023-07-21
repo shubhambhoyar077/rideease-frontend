@@ -2,8 +2,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url('https://th.bing.com/th/id/R.d8ca7b070e5cf45c252309e8bc045327?rik=8x7p3xVEuwI83Q&pid=ImgRaw&r=0');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  isolation: isolate;
   gap: 50px;
   padding: 30px;
+  height: 100vh;
+}
+
+.res-container::after {
+  content: '';
+  background-color: rgb(120 154 2 / 88%);
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  height: 100%;
 }
 
 .res-details {
