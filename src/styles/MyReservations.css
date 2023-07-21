@@ -26,6 +26,13 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.res-details::-webkit-scrollbar {
+  display: none;
 }
 
 .reservation {
