@@ -24,6 +24,7 @@ function DeleteCars() {
 
   return (
     <section className="cars-section">
+      <h1 className="text-center mt-3">Delete Car</h1>
       <ul className="delete-cars-list row">
         {cars.map((car) => (
           <li key={car.id} className="delete-cars-container col">

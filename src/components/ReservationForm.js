@@ -4,8 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchAuth } from '../redux/auths/authsSlice';
 
 const ReservationForm = ({ selectedCarId, carSelected }) => {
-  console.log(selectedCarId);
-  console.log(carSelected);
   const fullName = localStorage.getItem('name');
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars.cars) || [];

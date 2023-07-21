@@ -36,7 +36,6 @@ export const fetchAuth = createAsyncThunk(
       }
       return data;
     } catch (error) {
-      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   },

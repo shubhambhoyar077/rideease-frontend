@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuth } from '../redux/auths/authsSlice';
 
 const SendConfirmation = () => {
-  const { message, isLoading, error } = useSelector((state) => state.auths);
+  const { message, error } = useSelector((state) => state.auths);
   const dispatch = useDispatch();
   const [isFormValid, setFormValid] = useState(false);
   const [formData, setFormData] = useState({
@@ -24,7 +24,6 @@ const SendConfirmation = () => {
       },
     };
     dispatch(fetchAuth(data));
-    console.log(isLoading);
   };
 
   const handleChange = (e) => {
