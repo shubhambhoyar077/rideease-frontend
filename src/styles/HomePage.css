@@ -124,24 +124,3 @@
   border: none;
   color: #fff;
 }
-
-/* .cars-container .cars-list {
-  display: none;
-}
-
-.cars-container .cars-list:nth-child(-n + 1) {
-  display: flex;
-}
-
-
-@media (min-width: 1680px) {
-  .cars-container .cars-list {
-    display: flex;
-  }
-}
-
-@media (min-width: 991px) {
-  .cars-container .cars-list:nth-child(-n + 2) {
-    display: flex;
-  }
-} */
