@@ -6,11 +6,8 @@
 }
 
 .delete-cars-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
-  margin: 50px 0;
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 .delete-cars-container {
