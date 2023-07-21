@@ -84,6 +84,7 @@ const SignIn = () => {
           </Link>
         </div>
       </form>
+      {isLoading && <small>Please wait....</small>}
       <small className="text-success">{message}</small>
       <small className="text-danger">{error}</small>
     </div>

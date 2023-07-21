@@ -167,6 +167,7 @@ const Navbar = () => {
                 </>
               )}
             </div>
+            {isLoading && <small>Please wait....</small>}
             <small className="text-success">{message}</small>
             <small className="text-danger">{error}</small>
           </div>
