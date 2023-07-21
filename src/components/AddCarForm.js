@@ -24,9 +24,7 @@ function AddCars() {
   ];
 
   const handleChange = (e) => {
-    // const { name, value, type } = e.target;
-    // const newValue = type === 'file' ? e.target.files[0] : value
-    setCarData((prevState) => ({ ...prevState, [e.target.name]: e.tartget.value }));
+    setCarData((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e) => {
