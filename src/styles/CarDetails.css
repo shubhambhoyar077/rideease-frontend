@@ -7,13 +7,16 @@
 
 .car-details-container {
   display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
   gap: 50px;
-  height: 100vh;
-  padding: 30px;
+  overflow-y: scroll;
 }
 
 .car-details-img {
-  width: 55%;
+  width: 70%;
 }
 
 .big-image {
@@ -23,7 +26,7 @@
 
 .car-details-info {
   font-weight: bold;
-  width: 35%;
+  width: 30%;
 }
 
 .car-details-info h2 {
@@ -51,4 +54,14 @@
   text-decoration: none;
   border-radius: 1rem;
   color: #000;
+}
+
+@media (max-width: 1100px) {
+  .car-details-container {
+    flex-direction: column;
+  }
+
+  .car-details-info {
+    width: 70%;
+  }
 }
