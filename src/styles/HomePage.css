@@ -5,17 +5,39 @@
   text-decoration: none;
 }
 
+.test {
+  display: flex;
+}
+
 .home-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 85vh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
 }
 
 .home-page-text {
   color: #a2a4a4;
   font-weight: bold;
+}
+
+.carousel-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  text-align: center;
+  min-width: 80%;
+  padding: 0 1rem;
+}
+
+.carousel-car {
+  position: relative;
+  min-width: 100%;
+  padding-right: 1rem;
 }
 
 .cars-container {
@@ -78,16 +100,11 @@
 
 .carousel-buttons {
   display: flex;
+  position: absolute;
+  z-index: 1;
   justify-content: space-between;
   width: 100%;
   margin-top: -260px;
-}
-
-.carousel-container {
-  display: flex;
-  width: 90%;
-  flex-direction: column;
-  align-items: center;
 }
 
 .btn-cr {
@@ -108,15 +125,15 @@
   color: #fff;
 }
 
-.cars-container .cars-list {
-  display: none; /* Hide all li elements by default */
+/* .cars-container .cars-list {
+  display: none;
 }
 
 .cars-container .cars-list:nth-child(-n + 1) {
   display: flex;
 }
 
-/* Show all li elements on large screens and above */
+
 @media (min-width: 1680px) {
   .cars-container .cars-list {
     display: flex;
@@ -127,4 +144,4 @@
   .cars-container .cars-list:nth-child(-n + 2) {
     display: flex;
   }
-}
+} */
