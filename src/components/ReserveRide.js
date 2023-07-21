@@ -7,7 +7,6 @@ const ReserveRide = () => {
   const { id } = useParams();
   const cars = useSelector((state) => state.cars.cars) || [];
   const selectedCar = cars.find((car) => car.id === parseInt(id, 10));
-  console.log(id);
   return (
     <div
       className="reservation-container"

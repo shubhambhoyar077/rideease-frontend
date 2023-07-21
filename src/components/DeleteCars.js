@@ -13,21 +13,21 @@ function DeleteCars() {
   }, [dispatch]);
 
   const handleDelete = (id) => {
-    dispatch(deleteCar(id))
-      .then(() => {
-        dispatch(fetchCars());
-      });
+    dispatch(deleteCar(id)).then(() => {
+      dispatch(fetchCars());
+    });
   };
 
   if (cars.length === 0) {
-    return <div>Loading...</div>;
+    return <div>Please add car</div>;
   }
 
   return (
     <section className="cars-section">
-      <ul className="delete-cars-list">
+      <h1 className="text-center mt-3">Delete Car</h1>
+      <ul className="delete-cars-list row">
         {cars.map((car) => (
-          <li key={car.id} className="delete-cars-container">
+          <li key={car.id} className="delete-cars-container col">
             <Link to={`car/${car.id}`} className="delete-cars-card">
               <div>
                 <div className="circle-color">
@@ -36,7 +36,11 @@ function DeleteCars() {
                 <h5 className="delete-car-name">{car.name}</h5>
               </div>
             </Link>
-            <button className="delete-button" type="button" onClick={() => handleDelete(car.id)}>
+            <button
+              className="delete-button"
+              type="button"
+              onClick={() => handleDelete(car.id)}
+            >
               Delete Car
             </button>
           </li>
