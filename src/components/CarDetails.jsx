@@ -19,40 +19,40 @@ function CarDetails() {
   }
 
   return (
-      <div className="car-details-container">
-        <div className="car-details-img">
-          <img src={car.image} alt={car.name} className="big-image" />
-        </div>
-        <div className="car-details-info">
-          <h1>{car.name}</h1>
-          <p>
-            <span>
-              {car.details}
-            </span>
-          </p>
-          <p className="car-details-infos">
-            <span>Price:</span>
-            {' '}
-            <span>
-              {' '}
-              {car.price}
-            </span>
-          </p>
-          <p className="car-details-infos">
-            <span> Duration:</span>
-            {' '}
-            <span>
-              {' '}
-              {car.duration}
-            </span>
-          </p>
-          <Link to={`/car/${id}/reserve`} className="btn-res">
-            <i className="fa fa-tag" />
-            {' '}
-            Reserve
-          </Link>
-        </div>
+    <div className="car-details-container">
+      <div className="car-details-img">
+        <img src={car.image} alt={car.name} className="big-image" />
       </div>
+      <div className="car-details-info">
+        <h1>{car.name}</h1>
+        <p>
+          <span>
+            {car.details}
+          </span>
+        </p>
+        <p className="car-details-infos">
+          <span>Price:</span>
+          {' '}
+          <span>
+            {' '}
+            {car.price}
+          </span>
+        </p>
+        <p className="car-details-infos">
+          <span> Duration:</span>
+          {' '}
+          <span>
+            {' '}
+            {car.duration}
+          </span>
+        </p>
+        <Link to={`/car/${id}/reserve`} className="btn-res">
+          <i className="fa fa-tag" />
+          {' '}
+          Reserve
+        </Link>
+      </div>
+    </div>
   );
 }
 
