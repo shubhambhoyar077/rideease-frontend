@@ -8,13 +8,16 @@ const initialState = {
 export const fetchReservations = createAsyncThunk(
   'reservations/fetchReservations',
   async () => {
-    const response = await fetch('http://127.0.0.1:4000/api/reservations', {
-      method: 'GET',
-      headers: {
-        Authorization: localStorage.getItem('authToken'),
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      `${process.env.BACKEND_HOST}/api/reservations`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: localStorage.getItem('authToken'),
+          'Content-Type': 'application/json',
+        },
       },
-    });
+    );
     const reservationsData = await response.json();
 
     return reservationsData;
