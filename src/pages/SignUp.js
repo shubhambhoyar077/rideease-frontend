@@ -28,15 +28,18 @@ const SignUp = () => {
         body: JSON.stringify({ user: formData }),
       },
     };
-    dispatch(fetchAuth(data));
+    dispatch(fetchAuth(data)).then(() => {
+      setFormData({ name: '', email: '', password: '' });
+      setConfirmPassword('');
+    });
   };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setFormValid(
-      Boolean(formData.name) &&
-        Boolean(formData.email) &&
-        Boolean(formData.password)
+      Boolean(formData.name)
+        && Boolean(formData.email)
+        && Boolean(formData.password),
     );
     if (e.target.name === 'confirmPassword') {
       setConfirmPassword(e.target.value);
@@ -98,7 +101,7 @@ const SignUp = () => {
           <button
             type="submit"
             className="btn btn-primary"
-            disabled={!isFormValid || isLoading}
+            disabled={!(isFormValid && isPasswordMatch) || isLoading}
           >
             SignUp
           </button>

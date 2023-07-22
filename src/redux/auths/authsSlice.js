@@ -12,7 +12,7 @@ export const fetchAuth = createAsyncThunk(
     try {
       const response = await fetch(
         `http://127.0.0.1:4000/${authData.end_point}`,
-        authData.method_data
+        authData.method_data,
       );
       let data = '';
       if (!response.ok) {
@@ -45,7 +45,7 @@ export const fetchAuth = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 const authsSlice = createSlice({
