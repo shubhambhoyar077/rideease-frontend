@@ -4,7 +4,9 @@ export const fetchCarDetails = createAsyncThunk(
   'details/fetchCarDetails',
   async (id, { rejectWithValue }) => {
     try {
-      const response = await fetch(`http://127.0.0.1:4000/api/services/${id}`);
+      const response = await fetch(
+        `${process.env.BACKEND_HOST}/api/services/${id}`,
+      );
       if (!response.ok) {
         throw new Error('Failed to fetch car details');
       }

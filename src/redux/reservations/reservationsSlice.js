@@ -25,7 +25,7 @@ export const cancelReservation = createAsyncThunk(
   'reservations/cancelReservation',
   async (reservationId) => {
     const response = await fetch(
-      `http://127.0.0.1:4000/api/reservations/${reservationId}`,
+      `${process.env.BACKEND_HOST}/api/reservations/${reservationId}`,
       {
         method: 'DELETE',
         headers: {

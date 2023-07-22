@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
-  const response = await fetch('http://127.0.0.1:4000/api/services');
+  const response = await fetch(`${process.env.BACKEND_HOST}/api/services`);
   const carData = await response.json();
   if (response.status < 200 || response.status >= 300) {
     return 'fails';
@@ -19,18 +19,14 @@ const carsSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder
-      .addCase(fetchCars.fulfilled, (state, action) => ({
-        ...state,
-        cars: action.payload,
-      }));
-    builder.addCase(
-      fetchCars.rejected,
-      (state, action) => ({
-        ...state,
-        error: action.payload,
-      }),
-    );
+    builder.addCase(fetchCars.fulfilled, (state, action) => ({
+      ...state,
+      cars: action.payload,
+    }));
+    builder.addCase(fetchCars.rejected, (state, action) => ({
+      ...state,
+      error: action.payload,
+    }));
   },
 });
 

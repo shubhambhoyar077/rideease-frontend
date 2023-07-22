@@ -11,7 +11,7 @@ export const fetchAuth = createAsyncThunk(
   async (authData, thunkAPI) => {
     try {
       const response = await fetch(
-        `http://127.0.0.1:4000/${authData.end_point}`,
+        `${process.env.BACKEND_HOST}/${authData.end_point}`,
         authData.method_data,
       );
       let data = '';
