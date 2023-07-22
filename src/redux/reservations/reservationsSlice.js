@@ -9,7 +9,7 @@ export const fetchReservations = createAsyncThunk(
   'reservations/fetchReservations',
   async () => {
     const response = await fetch(
-      `${process.env.BACKEND_HOST}/api/reservations`,
+      `${process.env.REACT_APP_BACKEND_HOST}/api/reservations`,
       {
         method: 'GET',
         headers: {
@@ -28,7 +28,7 @@ export const cancelReservation = createAsyncThunk(
   'reservations/cancelReservation',
   async (reservationId) => {
     const response = await fetch(
-      `${process.env.BACKEND_HOST}/api/reservations/${reservationId}`,
+      `${process.env.REACT_APP_BACKEND_HOST}/api/reservations/${reservationId}`,
       {
         method: 'DELETE',
         headers: {

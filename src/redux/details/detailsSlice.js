@@ -5,7 +5,7 @@ export const fetchCarDetails = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        `${process.env.BACKEND_HOST}/api/services/${id}`,
+        `${process.env.REACT_APP_BACKEND_HOST}/api/services/${id}`,
       );
       if (!response.ok) {
         throw new Error('Failed to fetch car details');

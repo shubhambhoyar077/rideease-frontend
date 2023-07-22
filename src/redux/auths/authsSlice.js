@@ -11,7 +11,7 @@ export const fetchAuth = createAsyncThunk(
   async (authData, thunkAPI) => {
     try {
       const response = await fetch(
-        `${process.env.BACKEND_HOST}/${authData.end_point}`,
+        `${process.env.REACT_APP_BACKEND_HOST}/${authData.end_point}`,
         authData.method_data,
       );
       let data = '';
