@@ -28,8 +28,10 @@ const SignUp = () => {
         body: JSON.stringify({ user: formData }),
       },
     };
-    dispatch(fetchAuth(data));
-    console.log(isLoading);
+    dispatch(fetchAuth(data)).then(() => {
+      setFormData({ name: '', email: '', password: '' });
+      setConfirmPassword('');
+    });
   };
 
   const handleChange = (e) => {
@@ -99,7 +101,7 @@ const SignUp = () => {
           <button
             type="submit"
             className="btn btn-primary"
-            disabled={!isFormValid}
+            disabled={!(isFormValid && isPasswordMatch) || isLoading}
           >
             SignUp
           </button>
@@ -108,8 +110,9 @@ const SignUp = () => {
           </Link>
         </div>
       </form>
-      <small className="text-danger">{message}</small>
-      <small>{error}</small>
+      {isLoading && <small>Please wait....</small>}
+      <small className="text-success">{message}</small>
+      <small className="text-danger">{error}</small>
     </div>
   );
 };

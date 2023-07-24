@@ -1,5 +1,5 @@
 import { Link, Navigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuth } from '../redux/auths/authsSlice';
 import { setAuth, setAdmin } from '../redux/auths/userauthSlice';
@@ -14,11 +14,6 @@ const SignIn = () => {
     password: '',
   });
 
-  useEffect(() => {
-    dispatch(setAuth());
-    dispatch(setAdmin());
-  }, [dispatch, isLoading]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
@@ -32,7 +27,11 @@ const SignIn = () => {
         body: JSON.stringify({ user: formData }),
       },
     };
-    dispatch(fetchAuth(data));
+    dispatch(fetchAuth(data)).then(() => {
+      dispatch(setAuth());
+      dispatch(setAdmin());
+      setFormData({ email: '', password: '' });
+    });
   };
 
   const handleChange = (e) => {
@@ -76,7 +75,7 @@ const SignIn = () => {
           <button
             type="submit"
             className="btn btn-primary"
-            disabled={!isFormValid}
+            disabled={!isFormValid || isLoading}
           >
             SignIn
           </button>
@@ -85,8 +84,9 @@ const SignIn = () => {
           </Link>
         </div>
       </form>
-      <small className="text-danger">{message}</small>
-      <small>{error}</small>
+      {isLoading && <small>Please wait....</small>}
+      <small className="text-success">{message}</small>
+      <small className="text-danger">{error}</small>
     </div>
   );
 };
