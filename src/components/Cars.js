@@ -60,7 +60,7 @@ function Cars() {
   };
 
   if (cars.length === 0) {
-    return <div>Cars not available</div>;
+    return <div>Cars Loading...</div>;
   }
 
   return (
