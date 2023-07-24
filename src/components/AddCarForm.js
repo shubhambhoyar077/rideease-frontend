@@ -22,23 +22,17 @@ function AddCars() {
     { name: 'details', label: 'Details' },
     { name: 'duration', label: 'Duration' },
     { name: 'image', label: 'Image' },
-
   ];
 
   const handleChange = (e) => {
-    setCarData((prevState) => ({ ...prevState, [e.target.name]: e.target.value }));
+    setCarData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const requiredFields = formFields.filter((field) => field.required);
-    const emptyFields = requiredFields.filter((field) => !carData[field.name]);
-
-    if (emptyFields.length > 0) {
-      alert('Please fill in all required fields.');
-      return;
-    }
 
     const data = {
       end_point: '/api/services',
@@ -63,9 +57,13 @@ function AddCars() {
   };
 
   return (
-    <div style={{
-      display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh',
-    }}
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+      }}
     >
       <form
         onSubmit={handleSubmit}
@@ -87,11 +85,12 @@ function AddCars() {
               onChange={handleChange}
               required={field.required}
             />
-
           </div>
         ))}
         <div>
-          <button type="submit" className="btn btn-light text-success">Add Car</button>
+          <button type="submit" className="btn btn-light text-success">
+            Add Car
+          </button>
         </div>
       </form>
     </div>
