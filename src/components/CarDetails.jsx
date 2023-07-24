@@ -30,13 +30,25 @@ function CarDetails() {
           <span>{car.details}</span>
         </p>
         <p className="car-details-infos">
-          <span>Price:</span> <span> {car.price}</span>
+          <span>Price:</span>
+          {' '}
+          <span>
+            {' '}
+            {car.price}
+          </span>
         </p>
         <p className="car-details-infos">
-          <span> Duration:</span> <span> {car.duration}</span>
+          <span> Duration:</span>
+          {' '}
+          <span>
+            {' '}
+            {car.duration}
+          </span>
         </p>
         <Link to={`/car/${id}/reserve`} className="btn-res">
-          <IoCarSportSharp /> Reserve
+          <IoCarSportSharp />
+          {' '}
+          Reserve
         </Link>
       </div>
     </div>
