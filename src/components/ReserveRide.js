@@ -15,7 +15,11 @@ const ReserveRide = () => {
       className="reservation-container"
       style={{ backgroundImage: `url(${selectedCar && selectedCar.image})` }}
     >
-      <h1>{selectedCar.name} Test-Ride</h1>
+      <h1>
+        {selectedCar.name}
+        {' '}
+        Test-Ride
+      </h1>
       <ReservationForm selectedCarId={id} carSelected />
     </div>
   );

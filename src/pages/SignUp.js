@@ -5,7 +5,7 @@ import { fetchAuth } from '../redux/auths/authsSlice';
 import '../styles/sign.css';
 
 const SignUp = () => {
-  const { message, error } = useSelector((state) => state.auths);
+  const { message, isLoading, error } = useSelector((state) => state.auths);
   const dispatch = useDispatch();
   const [isFormValid, setFormValid] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -37,9 +37,9 @@ const SignUp = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setFormValid(
-      Boolean(formData.name) &&
-        Boolean(formData.email) &&
-        Boolean(formData.password)
+      Boolean(formData.name)
+        && Boolean(formData.email)
+        && Boolean(formData.password),
     );
     if (e.target.name === 'confirmPassword') {
       setConfirmPassword(e.target.value);
