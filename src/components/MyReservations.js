@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchReservations, cancelReservation } from '../redux/reservations/reservationsSlice';
+import {
+  fetchReservations,
+  cancelReservation,
+} from '../redux/reservations/reservationsSlice';
 import '../styles/MyReservations.css';
 
 function MyReservations() {
@@ -10,7 +13,6 @@ function MyReservations() {
   }, [dispatch]);
 
   const reservations = useSelector((state) => state.reservations.reservations);
-
   const handleCancelReservation = (reservationId) => {
     dispatch(cancelReservation(reservationId));
   };
@@ -28,12 +30,10 @@ function MyReservations() {
                 <h5>{reservation.service.name}</h5>
                 <p>
                   City:
-                  {' '}
                   {reservation.reservation.city}
                 </p>
                 <p>
                   Date:
-                  {' '}
                   {reservation.reservation.date}
                 </p>
                 <button

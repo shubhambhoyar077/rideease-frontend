@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuth } from '../redux/auths/authsSlice';
 
 const SendConfirmation = () => {
-  const { message, isLoading, error } = useSelector((state) => state.auths);
+  const { message, error } = useSelector((state) => state.auths);
   const dispatch = useDispatch();
   const [isFormValid, setFormValid] = useState(false);
   const [formData, setFormData] = useState({
@@ -23,9 +23,7 @@ const SendConfirmation = () => {
         body: JSON.stringify({ user: formData }),
       },
     };
-    dispatch(fetchAuth(data)).then(() => {
-      setFormData({ email: '' });
-    });
+    dispatch(fetchAuth(data));
   };
 
   const handleChange = (e) => {
@@ -35,14 +33,14 @@ const SendConfirmation = () => {
   return (
     <div className="sign-container">
       <h3>Send configuration email again</h3>
-      <form className="mt-3 container-sm" onSubmit={handleSubmit}>
-        <div className="mb-3">
+      <form className="sign-up-form" onSubmit={handleSubmit}>
+        <div className="input-container">
           <input
             type="email"
             name="email"
-            className="form-control"
+            className="form-input"
             id="floatingInput"
-            placeholder="Type your Email"
+            placeholder="Email"
             value={formData.email}
             onChange={handleChange}
           />
@@ -50,19 +48,21 @@ const SendConfirmation = () => {
         <div className="d-flex gap-3">
           <button
             type="submit"
-            className="btn btn-primary"
+            className="sign-up-btn"
             disabled={!isFormValid}
           >
             Send email
           </button>
-          <Link to="/sign_in" className="btn btn-primary">
+        </div>
+        <p>
+          Already Have an Account?
+          <Link Link to="/sign_in" className="sign-in-link">
             SignIn
           </Link>
-        </div>
+        </p>
       </form>
-      {isLoading && <small>Please wait....</small>}
-      <small className="text-success">{message}</small>
-      <small className="text-danger">{error}</small>
+      <small className="text-danger">{message}</small>
+      <small>{error}</small>
     </div>
   );
 };
