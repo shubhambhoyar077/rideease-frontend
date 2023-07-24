@@ -16,45 +16,39 @@ function MyReservations() {
   };
 
   return (
-    <div className="container">
-      <div className="text-center">
-        <h1 style={{ padding: '2%' }}>My Reservations</h1>
+    <section className="res-container">
+      <div>
+        <h1>My Reservations</h1>
       </div>
-      <div className="row">
+      <div className="res-details">
         {reservations.map((reservation) => (
-          <div className="col-md-11 mb-4" key={reservation.reservation.id}>
-            <div className="card flex-md-row">
-              <div className="card-body">
-                <h5 className="card-title">{reservation.service.name}</h5>
-                <p className="card-text">
+          <div key={reservation.reservation.id}>
+            <div className="reservation">
+              <div className="res-texts">
+                <h5>{reservation.service.name}</h5>
+                <p>
                   City:
                   {' '}
                   {reservation.reservation.city}
                 </p>
-                <p className="card-text">
+                <p>
                   Date:
                   {' '}
                   {reservation.reservation.date}
                 </p>
                 <button
-                  className="btn btn-danger"
                   type="button"
+                  className="cancel-btn"
                   onClick={() => handleCancelReservation(reservation.reservation.id)}
                 >
                   Cancel
                 </button>
               </div>
-              <img
-                src={reservation.service.image}
-                className="card-img-right rounded-circle"
-                alt={reservation.service.name}
-                style={{ width: '20%' }}
-              />
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

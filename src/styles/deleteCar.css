@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.delete-cars-list {
+  overflow-y: scroll;
+  height: 90vh;
+}
+
+.delete-cars-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delete-cars-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #000;
+}
+
+.delete-button {
+  background-color: #f00;
+  color: #fff;
+  border: navajowhite;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
