@@ -23,7 +23,9 @@ const SendConfirmation = () => {
         body: JSON.stringify({ user: formData }),
       },
     };
-    dispatch(fetchAuth(data));
+    dispatch(fetchAuth(data)).then(() => {
+      setFormData({ email: '' });
+    });
   };
 
   const handleChange = (e) => {
@@ -40,7 +42,7 @@ const SendConfirmation = () => {
             name="email"
             className="form-control"
             id="floatingInput"
-            placeholder="Email"
+            placeholder="Type your Email"
             value={formData.email}
             onChange={handleChange}
           />
@@ -58,8 +60,9 @@ const SendConfirmation = () => {
           </Link>
         </div>
       </form>
-      <small className="text-danger">{message}</small>
-      <small>{error}</small>
+      {isLoading && <small>Please wait....</small>}
+      <small className="text-success">{message}</small>
+      <small className="text-danger">{error}</small>
     </div>
   );
 };

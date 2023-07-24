@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { fetchAuth } from '../redux/auths/authsSlice';
 
 const ReservationForm = ({ selectedCarId, carSelected }) => {
   const fullName = localStorage.getItem('name');
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.cars.cars) || [];
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     city: '',
@@ -34,7 +36,10 @@ const ReservationForm = ({ selectedCarId, carSelected }) => {
         body: JSON.stringify({ reservations: formData }),
       },
     };
-    dispatch(fetchAuth(data));
+    dispatch(fetchAuth(data)).then(() => {
+      setFormData({ city: '', date: '', service_id: '' });
+      navigate('/myreservations');
+    });
   };
 
   const handleChange = (e) => {
