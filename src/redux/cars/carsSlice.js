@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND_HOST}/api/services`
+    `${process.env.REACT_APP_BACKEND_HOST}/api/services`,
   );
   const carData = await response.json();
   if (response.status < 200 || response.status >= 300) {
@@ -28,7 +28,7 @@ export const deleteCar = createAsyncThunk('deleteCar', async (id) => {
           Authorization: localStorage.getItem('authToken'),
           'Content-Type': 'application/json',
         },
-      }
+      },
     );
     return response.data;
   } catch (error) {
