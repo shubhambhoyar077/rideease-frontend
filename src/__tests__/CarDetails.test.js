@@ -41,7 +41,7 @@ describe('HomePage and Cars Component', () => {
         <Provider store={store}>
           <CarDetails />
         </Provider>
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     expect(screen.getByText('Test Car')).toBeInTheDocument();

@@ -35,7 +35,7 @@ describe('MyReservations Component', () => {
         <Provider store={store}>
           <MyReservations />
         </Provider>
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     expect(screen.getByText('test car')).toBeInTheDocument();

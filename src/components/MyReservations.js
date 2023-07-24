@@ -28,14 +28,18 @@ function MyReservations() {
             <div className="reservation">
               <div className="res-texts">
                 <h5>{reservation.service.name}</h5>
-                <p>City: {reservation.reservation.city}</p>
-                <p>Date: {reservation.reservation.date}</p>
+                <p>
+                  City:
+                  {reservation.reservation.city}
+                </p>
+                <p>
+                  Date:
+                  {reservation.reservation.date}
+                </p>
                 <button
                   type="button"
                   className="cancel-btn"
-                  onClick={() =>
-                    handleCancelReservation(reservation.reservation.id)
-                  }
+                  onClick={() => handleCancelReservation(reservation.reservation.id)}
                 >
                   Cancel
                 </button>

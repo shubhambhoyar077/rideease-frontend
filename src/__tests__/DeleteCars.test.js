@@ -36,7 +36,7 @@ describe('HomePage and Cars Component', () => {
         <Provider store={store}>
           <DeleteCars />
         </Provider>
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     expect(screen.getAllByText('Delete Car')[0]).toBeInTheDocument();

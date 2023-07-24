@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import Navbar from '../components/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
+import Navbar from '../components/Navbar';
 import '@testing-library/jest-dom';
 
 jest.mock('react-redux', () => ({
@@ -18,7 +18,7 @@ describe('Navbar', () => {
     render(
       <BrowserRouter>
         <Navbar />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const homeLink = screen.getByText('Cars');
@@ -42,7 +42,7 @@ describe('Navbar', () => {
     render(
       <BrowserRouter>
         <Navbar />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
 
     const homeLink = screen.getByText('Cars');
