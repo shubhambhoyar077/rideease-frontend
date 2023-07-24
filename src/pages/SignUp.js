@@ -5,7 +5,7 @@ import { fetchAuth } from '../redux/auths/authsSlice';
 import '../styles/sign.css';
 
 const SignUp = () => {
-  const { message, isLoading, error } = useSelector((state) => state.auths);
+  const { message, error } = useSelector((state) => state.auths);
   const dispatch = useDispatch();
   const [isFormValid, setFormValid] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -28,10 +28,7 @@ const SignUp = () => {
         body: JSON.stringify({ user: formData }),
       },
     };
-    dispatch(fetchAuth(data)).then(() => {
-      setFormData({ name: '', email: '', password: '' });
-      setConfirmPassword('');
-    });
+    dispatch(fetchAuth(data));
   };
 
   const handleChange = (e) => {
@@ -49,47 +46,48 @@ const SignUp = () => {
     }
   };
   return (
-    <div className="sign-container">
-      <h3>Sign Up</h3>
-      <form className="mt-3" onSubmit={handleSubmit}>
-        <div className="mb-3">
+    <section className="sign-container">
+      <h3>Welcome to RideEase</h3>
+      <p>Sign up to get started</p>
+      <form className="sign-up-form" onSubmit={handleSubmit}>
+        <div className="input-container">
           <input
             type="Name"
             name="name"
-            className="form-control"
+            className="form-input"
             id="exampleInputname"
             placeholder="Full Name"
             value={formData.name}
             onChange={handleChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="input-container">
           <input
             type="email"
             name="email"
-            className="form-control"
+            className="form-input"
             id="exampleInputEmail1"
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="input-container">
           <input
             type="password"
             name="password"
-            className="form-control"
+            className="form-input"
             id="exampleInputPassword1"
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="input-container">
           <input
             type="password"
             name="confirmPassword"
-            className="form-control"
+            className="form-input"
             id="exampleInputPassword1"
             placeholder="Confirm Password"
             value={confirmPassword}
@@ -100,20 +98,22 @@ const SignUp = () => {
         <div className="d-flex gap-3">
           <button
             type="submit"
-            className="btn btn-primary"
-            disabled={!(isFormValid && isPasswordMatch) || isLoading}
+            className="sign-up-btn"
+            disabled={!isFormValid}
           >
             SignUp
           </button>
-          <Link to="/sign_in" className="btn btn-primary">
+        </div>
+        <p>
+          Already Have an Account?
+          <Link to="/sign_in" className="sign-in-link">
             Sign In
           </Link>
-        </div>
+        </p>
       </form>
-      {isLoading && <small>Please wait....</small>}
-      <small className="text-success">{message}</small>
-      <small className="text-danger">{error}</small>
-    </div>
+      <small className="text-danger">{message}</small>
+      <small>{error}</small>
+    </section>
   );
 };
 
