@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuth } from '../redux/auths/authsSlice';
 
 const ForgetPassword = () => {
-  const { message, error } = useSelector((state) => state.auths);
+  const { message, isLoading, error } = useSelector((state) => state.auths);
   const dispatch = useDispatch();
   const [isFormValid, setFormValid] = useState(false);
   const [formData, setFormData] = useState({
@@ -23,7 +23,9 @@ const ForgetPassword = () => {
         body: JSON.stringify({ user: formData }),
       },
     };
-    dispatch(fetchAuth(data));
+    dispatch(fetchAuth(data)).then(() => {
+      setFormData({ email: '' });
+    });
   };
 
   const handleChange = (e) => {
@@ -58,8 +60,9 @@ const ForgetPassword = () => {
           </Link>
         </div>
       </form>
-      <small className="text-danger">{message}</small>
-      <small>{error}</small>
+      {isLoading && <small>Please wait....</small>}
+      <small className="text-success">{message}</small>
+      <small className="text-danger">{error}</small>
     </div>
   );
 };

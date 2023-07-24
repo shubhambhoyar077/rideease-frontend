@@ -1,9 +1,9 @@
-import React from 'react';
+import '../styles/AddCar.css';
+import AddCar from './AddCarForm';
 
-function AddCars() {
-  return (
-    <div>AddCars</div>
-  );
-}
-
+const AddCars = () => (
+  <div className="car-container">
+    <AddCar />
+  </div>
+);
 export default AddCars;

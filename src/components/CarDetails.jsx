@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { IoCarSportSharp } from 'react-icons/io5';
 import { fetchCarDetails } from '../redux/details/detailsSlice';
 import '../styles/CarDetails.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,43 +20,36 @@ function CarDetails() {
   }
 
   return (
-    <div className="car-details-container container">
-      <div className="row">
-        <div className="car-details-image col-6">
-          <img src={car.image} alt={car.name} className="big-image" />
-        </div>
-        <div className="car-details-info col-6">
-          <h2>{car.name}</h2>
-          <p>
-            <span>Price:</span>
+    <div className="car-details-container container-lg mt-5">
+      <div className="car-details-img">
+        <img src={car.image} alt={car.name} className="big-image" />
+      </div>
+      <div className="car-details-info">
+        <h1>{car.name}</h1>
+        <p>
+          <span>{car.details}</span>
+        </p>
+        <p className="car-details-infos">
+          <span>Price:</span>
+          {' '}
+          <span>
             {' '}
-            <span>
-              {' '}
-              {car.price}
-            </span>
-          </p>
-          <p>
-            <span>Details:</span>
+            {car.price}
+          </span>
+        </p>
+        <p className="car-details-infos">
+          <span> Duration:</span>
+          {' '}
+          <span>
             {' '}
-            <span>
-              {' '}
-              {car.details}
-            </span>
-          </p>
-          <p>
-            <span> Duration:</span>
-            {' '}
-            <span>
-              {' '}
-              {car.duration}
-            </span>
-          </p>
-          <Link to={`/car/${id}/reserve`} className="btn btn-primary">
-            <i className="fa fa-tag" />
-            {' '}
-            Reserve
-          </Link>
-        </div>
+            {car.duration}
+          </span>
+        </p>
+        <Link to={`/car/${id}/reserve`} className="btn-res">
+          <IoCarSportSharp />
+          {' '}
+          Reserve
+        </Link>
       </div>
     </div>
   );
