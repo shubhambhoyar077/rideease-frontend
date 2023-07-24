@@ -1,5 +1,5 @@
 import { Link, Navigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuth } from '../redux/auths/authsSlice';
 import { setAuth, setAdmin } from '../redux/auths/userauthSlice';
@@ -14,6 +14,11 @@ const SignIn = () => {
     password: '',
   });
 
+  useEffect(() => {
+    dispatch(setAuth());
+    dispatch(setAdmin());
+  }, [dispatch, isLoading]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
@@ -27,11 +32,7 @@ const SignIn = () => {
         body: JSON.stringify({ user: formData }),
       },
     };
-    dispatch(fetchAuth(data)).then(() => {
-      dispatch(setAuth());
-      dispatch(setAdmin());
-      setFormData({ email: '', password: '' });
-    });
+    dispatch(fetchAuth(data));
   };
 
   const handleChange = (e) => {
@@ -43,24 +44,25 @@ const SignIn = () => {
   }
   return (
     <div className="sign-container">
-      <h3>Sign In</h3>
-      <form className="mt-3 container-sm" onSubmit={handleSubmit}>
-        <div className="mb-3">
+      <h3>Welcome to RideEase</h3>
+      <p>Login in to get started</p>
+      <form className="sign-up-form" onSubmit={handleSubmit}>
+        <div className="input-container">
           <input
             type="email"
             name="email"
-            className="form-control"
+            className="form-input"
             id="floatingInput"
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
           />
         </div>
-        <div className="mb-3">
+        <div className="input-container">
           <input
             type="password"
             name="password"
-            className="form-control"
+            className="form-input"
             id="exampleInputPassword1"
             placeholder="Password"
             value={formData.password}
@@ -74,19 +76,21 @@ const SignIn = () => {
         <div className="d-flex gap-3">
           <button
             type="submit"
-            className="btn btn-primary"
-            disabled={!isFormValid || isLoading}
+            className="sign-up-btn"
+            disabled={!isFormValid}
           >
             SignIn
           </button>
-          <Link to="/sign_up" className="btn btn-primary">
+        </div>
+        <p>
+          Don not Have an Account?
+          <Link to="/sign_up" className="sign-in-link">
             SignUp
           </Link>
-        </div>
+        </p>
       </form>
-      {isLoading && <small>Please wait....</small>}
-      <small className="text-success">{message}</small>
-      <small className="text-danger">{error}</small>
+      <small className="text-danger">{message}</small>
+      <small>{error}</small>
     </div>
   );
 };
