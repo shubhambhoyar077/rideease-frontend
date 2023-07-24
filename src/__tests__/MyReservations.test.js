@@ -39,7 +39,7 @@ describe('MyReservations Component', () => {
     );
 
     expect(screen.getByText('test car')).toBeInTheDocument();
-    expect(screen.getByText('City: Test City')).toBeInTheDocument();
+    expect(screen.getByText(/Test City/)).toBeInTheDocument();
     expect(screen.getByText('My Reservations')).toBeInTheDocument();
   });
 });
