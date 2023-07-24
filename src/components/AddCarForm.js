@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchAuth } from '../redux/auths/authsSlice';
 
 const fieldStyle = {
   marginBottom: '15px',
@@ -12,6 +14,7 @@ function AddCars() {
     duration: '',
     image: '',
   });
+  const dispatch = useDispatch();
 
   const formFields = [
     { name: 'name', label: 'Name' },
@@ -29,9 +32,7 @@ function AddCars() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(carData);
-    // implement the logic to submit
-    // the form data to your backend or perform other actions.
+
     const requiredFields = formFields.filter((field) => field.required);
     const emptyFields = requiredFields.filter((field) => !carData[field.name]);
 
@@ -39,7 +40,19 @@ function AddCars() {
       alert('Please fill in all required fields.');
       return;
     }
-    console.log(carData);
+
+    const data = {
+      end_point: '/api/services',
+      method_data: {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ service: carData }),
+      },
+    };
+    dispatch(fetchAuth(data));
+
     // Reset the form after submission
     setCarData({
       name: '',
