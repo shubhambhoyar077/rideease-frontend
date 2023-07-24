@@ -22,7 +22,6 @@ function AddCars() {
     { name: 'details', label: 'Details' },
     { name: 'duration', label: 'Duration' },
     { name: 'image', label: 'Image' },
-    
 
   ];
 
@@ -80,14 +79,14 @@ function AddCars() {
               {field.label}
               :
             </label>
-              <input
-                type="text"
-                name={field.name}
-                id={field.name}
-                value={carData[field.name]}
-                onChange={handleChange}
-                required={field.required}
-              />
+            <input
+              type="text"
+              name={field.name}
+              id={field.name}
+              value={carData[field.name]}
+              onChange={handleChange}
+              required={field.required}
+            />
 
           </div>
         ))}
