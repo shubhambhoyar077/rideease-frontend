@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import '@testing-library/jest-dom';
-import HomePage from '../pages/HomePage';
+import DeleteCars from '../components/DeleteCars';
 
 const mockStore = configureMockStore([]);
 
@@ -30,18 +30,16 @@ describe('HomePage and Cars Component', () => {
     store.dispatch = jest.fn();
   });
 
-  it('should render the cars from store', () => {
+  it('should render the delete cars list from store', () => {
     render(
       <BrowserRouter>
         <Provider store={store}>
-          <HomePage />
+          <DeleteCars />
         </Provider>
       </BrowserRouter>
     );
 
-    expect(screen.getByText('LATEST MODELS')).toBeInTheDocument();
-    expect(screen.getByText('Please select a Car Model')).toBeInTheDocument();
+    expect(screen.getAllByText('Delete Car')[0]).toBeInTheDocument();
     expect(screen.getByText('Test Car')).toBeInTheDocument();
-    expect(screen.getByText('test details')).toBeInTheDocument();
   });
 });

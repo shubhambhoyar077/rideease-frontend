@@ -1,29 +1,45 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import MyReservations from '../components/MyReservations';
+import '@testing-library/jest-dom';
 
 const mockStore = configureMockStore([]);
 
 describe('MyReservations Component', () => {
-  it('should render correctly', () => {
-    const store = mockStore({
+  let store;
+
+  beforeEach(() => {
+    store = mockStore({
       reservations: {
         reservations: [
           {
-            service: { name: 'Test Service', image: 'test.jpg' },
-            reservation: { id: 1, city: 'Test City', date: '2023-07-15' },
+            reservation: {
+              id: 1,
+              city: 'Test City',
+              date: '2023-07-15',
+            },
+            service: { name: 'test car' },
           },
         ],
       },
     });
-    const tree = renderer.create(
-      <Provider store={store}>
-        <MyReservations />
-      </Provider>,
-    ).toJSON();
+    store.dispatch = jest.fn();
+  });
 
-    expect(tree).toMatchSnapshot();
+  it('should render the reservations from store', () => {
+    render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <MyReservations />
+        </Provider>
+      </BrowserRouter>
+    );
+
+    expect(screen.getByText('test car')).toBeInTheDocument();
+    expect(screen.getByText('City: Test City')).toBeInTheDocument();
+    expect(screen.getByText('My Reservations')).toBeInTheDocument();
   });
 });

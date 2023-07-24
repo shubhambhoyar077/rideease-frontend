@@ -60,6 +60,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^27.5.1",
     "jest-dom": "^4.0.0",
+    "matchmedia-polyfill": "^0.3.2",
     "react-test-renderer": "^18.2.0",
     "redux-mock-store": "^1.5.4",
     "stylelint": "^13.13.1",
