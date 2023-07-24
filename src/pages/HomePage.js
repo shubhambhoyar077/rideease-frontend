@@ -6,11 +6,11 @@ const HomePage = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
 
   const scrollRight = () => {
-    setCarouselIndex((prevIndex) => prevIndex + 1);
+    setCarouselIndex((prevIndex) => prevIndex + 3);
   };
 
   const scrollLeft = () => {
-    setCarouselIndex((prevIndex) => prevIndex - 1);
+    setCarouselIndex((prevIndex) => prevIndex - 3);
   };
 
   return (

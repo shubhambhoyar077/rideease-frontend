@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   cars: [],
+  messages: '',
+  deleted: false,
   error: null,
 };
 
@@ -12,6 +14,21 @@ export const fetchCars = createAsyncThunk('cars/fetchCars', async () => {
     return 'fails';
   }
   return carData;
+});
+
+export const deleteCar = createAsyncThunk('deleteCar', async (id) => {
+  try {
+    const response = await fetch(`http://127.0.0.1:4000/api/services/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: localStorage.getItem('authToken'),
+        'Content-Type': 'application/json',
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return error.message;
+  }
 });
 
 const carsSlice = createSlice({
@@ -31,6 +48,10 @@ const carsSlice = createSlice({
         error: action.payload,
       }),
     );
+    builder.addCase(deleteCar.fulfilled, (state, action) => ({
+      ...state,
+      messages: action.payload,
+    }));
   },
 });
 
