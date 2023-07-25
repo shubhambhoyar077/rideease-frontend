@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { fetchAuth } from '../redux/auths/authsSlice';
 
 function AddCars() {
+  const navigate = useNavigate();
   const [carData, setCarData] = useState({
     name: '',
     price: '',
@@ -32,7 +34,9 @@ function AddCars() {
         body: JSON.stringify({ service: carData }),
       },
     };
-    dispatch(fetchAuth(data));
+    dispatch(fetchAuth(data)).then(() => {
+      navigate('/');
+    });
 
     // Reset the form after submission
     setCarData({
