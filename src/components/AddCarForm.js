@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { fetchAuth } from '../redux/auths/authsSlice';
 
-const fieldStyle = {
-  marginBottom: '15px',
-};
-
 function AddCars() {
+  const navigate = useNavigate();
   const [carData, setCarData] = useState({
     name: '',
     price: '',
@@ -15,14 +13,6 @@ function AddCars() {
     image: '',
   });
   const dispatch = useDispatch();
-
-  const formFields = [
-    { name: 'name', label: 'Name' },
-    { name: 'price', label: 'Price' },
-    { name: 'details', label: 'Details' },
-    { name: 'duration', label: 'Duration' },
-    { name: 'image', label: 'Image' },
-  ];
 
   const handleChange = (e) => {
     setCarData((prevState) => ({
@@ -44,7 +34,9 @@ function AddCars() {
         body: JSON.stringify({ service: carData }),
       },
     };
-    dispatch(fetchAuth(data));
+    dispatch(fetchAuth(data)).then(() => {
+      navigate('/');
+    });
 
     // Reset the form after submission
     setCarData({
@@ -57,38 +49,70 @@ function AddCars() {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-      }}
-    >
+    <div>
       <form
         onSubmit={handleSubmit}
         id="car-form"
         className="d-flex flex-column align-items-center g-4"
       >
         <h1>Add a New Car</h1>
-        {formFields.map((field) => (
-          <div key={field.name} style={fieldStyle}>
-            <label htmlFor={field.name}>
-              {field.label}
-              :
-            </label>
-            <input
-              type="text"
-              name={field.name}
-              id={field.name}
-              value={carData[field.name]}
-              onChange={handleChange}
-              required={field.required}
-            />
-          </div>
-        ))}
+
+        <input
+          type="text"
+          name="name"
+          className="form-control mb-3"
+          id="name"
+          placeholder="Enter Car Name"
+          value={carData.name}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="text"
+          name="image"
+          className="form-control mb-3"
+          id="image"
+          placeholder="Enter Car Image URL"
+          value={carData.image}
+          onChange={handleChange}
+          required
+        />
+
+        <textarea
+          name="details"
+          className="form-control mb-3"
+          id="details"
+          placeholder="Enter Car Details"
+          value={carData.details}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="number"
+          name="price"
+          className="form-control mb-3"
+          id="price"
+          placeholder="Enter Car Price"
+          value={carData.price}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          type="number"
+          name="duration"
+          className="form-control mb-3"
+          id="duration"
+          placeholder="Enter Car Ride Duration"
+          value={carData.duration}
+          onChange={handleChange}
+          required
+        />
+
         <div>
-          <button type="submit" className="btn btn-light text-success">
+          <button type="submit" className="btn btn-primary">
             Add Car
           </button>
         </div>
