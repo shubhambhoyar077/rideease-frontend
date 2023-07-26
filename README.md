@@ -32,7 +32,7 @@
 
 # 📖 RideEase <a name="about-project"></a>
 
-**RideEase** is a car booking website that allows users to easily book a ride and travel to their desired destinations. User can reserve a car from the available cars by provideing the date and city.
+**RideEase** is a car booking website that allows users to easily book a ride and travel to their desired destinations. User can reserve a car from the available cars by providing the date and city.
 RideEase provides a seamless and reliable car booking experience.
 
 **Link for the Backend repository:** [URL](https://github.com/shubhambhoyar077/rideease-backend)
@@ -68,7 +68,7 @@ RideEase provides a seamless and reliable car booking experience.
 - Users can create accounts and log in securely to access the booking functionalities.
 - Choose from a wide range of available cars based on your preferences and requirements.
 - Easily book a car for your desired date and time and manage your bookings efficiently.
-- User can Cancel the booking.
+- The user can cancel the booking.
 - Website is responsive and is designed to work nicely for different devices and screens.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -81,8 +81,9 @@ RideEase provides a seamless and reliable car booking experience.
 
 ## <img src="https://cdn-icons-png.flaticon.com/512/5360/5360804.png" width="23" height="20"/> Kanban Board <a name="kanban-board"></a>
 
+- It's a five-member team.
 - Check here [Kanban Board](https://github.com/users/shubhambhoyar077/projects/6)
-- Check here initial state of the [Kanban Board Screenshot](https://user-images.githubusercontent.com/100614799/252989230-9bd992c1-c21a-4356-825c-f965c5f3ee77.JPG)
+- Check here the initial state of the [Kanban Board Screenshot](https://user-images.githubusercontent.com/100614799/252989230-9bd992c1-c21a-4356-825c-f965c5f3ee77.JPG)
 
 <!-- React Frontend -->
 
@@ -110,7 +111,7 @@ In order to run this project you need:
 
 - Code Editor (Vs Code)
 - Terminal
-- Install ruby on your computer
+- Install Ruby on your computer
 - Install rails on your computer
 - Node.js
 - PostgreSQL
@@ -157,7 +158,7 @@ To run the project, execute the following command:
 <u>**For Backend**</u>
 
 ```sh
-  Set up JWT secret key key as follow:-
+  Set up JWT secret key as follow:-
   rails secret (copy secret_key)
 
   Linux/Mac user:-
