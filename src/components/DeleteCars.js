@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { fetchCars, deleteCar } from '../redux/cars/carsSlice';
 import '../styles/deleteCar.css';
 
