@@ -1,0 +1,127 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.test {
+  display: flex;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+}
+
+.home-page-text {
+  color: #a2a4a4;
+  font-weight: bold;
+}
+
+.carousel-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  text-align: center;
+  min-width: 80%;
+  padding: 0 1rem;
+}
+
+.carousel-car {
+  position: relative;
+  min-width: 100%;
+  padding-right: 1rem;
+}
+
+.cars-container {
+  display: flex;
+  gap: 150px;
+  margin: 0;
+  padding: 0;
+}
+
+.cars-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cars-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.circle-color {
+  width: 18rem;
+  height: 18rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cars-image {
+  height: 90%;
+  width: 90%;
+  overflow: hidden;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cars-card-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+.dots {
+  color: #d3d4d4;
+  font-size: 24px;
+}
+
+.car-details {
+  font-size: 12px;
+  color: #a2a4a4;
+}
+
+.carousel-buttons {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: -260px;
+}
+
+.btn-cr {
+  width: 50px;
+  height: 40px;
+  border-radius: 0 50% 50% 0;
+  background-color: #97bf0f;
+  border: none;
+  color: #fff;
+}
+
+.btn-cr2 {
+  width: 50px;
+  height: 40px;
+  border-radius: 50% 0 0 50%;
+  background-color: #97bf0f;
+  border: none;
+  color: #fff;
+}

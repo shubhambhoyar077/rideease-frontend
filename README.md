@@ -1,70 +1,274 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h2><b>RideEase</b><br><small>A Car Booking Website</small></h2>
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
+# 📗 Table of Contents
 
-### `npm start`
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 RideEase ](#-rideease-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🗎 API Documentation ](#-api-documentation-)
+  - [ Kanban Board ](#-kanban-board-)
+  - [ React Frontend ](#-react-frontend-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Prerequisites](#prerequisites-1)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+    - [Deployment](#deployment)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [❓ FAQ ](#-faq-)
+  - [📝 License ](#-license-)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 📖 RideEase <a name="about-project"></a>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**RideEase** is a car booking website that allows users to easily book a ride and travel to their desired destinations. User can reserve a car from the available cars by providing the date and city.
+RideEase provides a seamless and reliable car booking experience.
 
-### `npm test`
+**Link for the Backend repository:** [URL](https://github.com/shubhambhoyar077/rideease-backend)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠 Built With <a name="built-with"></a>
 
-### `npm run build`
+### Tech Stack <a name="tech-stack"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://guides.rubyonrails.org/">Ruby on Rails</a></li>
+  </ul>
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li>React</li>
+  </ul>
+</details>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
 
-### `npm run eject`
+### Key Features <a name="key-features"></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Only Admin can add or delete Cars from the website.
+- Users can create accounts and log in securely to access the booking functionalities.
+- Choose from a wide range of available cars based on your preferences and requirements.
+- Easily book a car for your desired date and time and manage your bookings efficiently.
+- The user can cancel the booking.
+- Website is responsive and is designed to work nicely for different devices and screens.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🗎 API Documentation <a name="api-docs"></a>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Check here API documentation [Rideease app](https://rideease-backend.onrender.com/api-docs/index.html)
 
-## Learn More
+<!-- Kanban Board -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## <img src="https://cdn-icons-png.flaticon.com/512/5360/5360804.png" width="23" height="20"/> Kanban Board <a name="kanban-board"></a>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- It's a five-member team.
+- Check here [Kanban Board](https://github.com/users/shubhambhoyar077/projects/6)
+- Check here the initial state of the [Kanban Board Screenshot](https://user-images.githubusercontent.com/100614799/252989230-9bd992c1-c21a-4356-825c-f965c5f3ee77.JPG)
 
-### Code Splitting
+<!-- React Frontend -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/539px-React-icon.svg.png" width="23" height="20"/> React Frontend <a name="react-frontend"></a>
 
-### Analyzing the Bundle Size
+- Backend part of the project [Rideease-frontend](https://github.com/shubhambhoyar077/rideease-backend)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🚀 Live Demo <a name="live-demo"></a>
 
-### Making a Progressive Web App
+- [Live Demo](https://rideease.onrender.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Advanced Configuration
+## 💻 Getting Started <a name="getting-started"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+In order to run this project you need:
+
+- Code Editor (Vs Code)
+- Terminal
+- Install Ruby on your computer
+- Install rails on your computer
+- Node.js
+- PostgreSQL
+
+### Setup
+
+Clone these repositories by using the command line to your desired folder:
+
+<u>**For Backend**</u>
+
+```sh
+git clone https://github.com/shubhambhoyar077/rideease-backend
+
+cd rideease-backend
+```
+
+<u>**For Frontend**</u>
+
+```sh
+git clone https://github.com/shubhambhoyar077/rideease-frontend
+
+cd rideease-frontend
+```
+
+### Install
+
+Install this project with:
+
+<u>**For Backend**</u>
+
+```sh
+  bundle install
+```
+
+<u>**For Frontend**</u>
+
+```sh
+npm install
+```
+
+### Usage
+
+To run the project, execute the following command:
+<u>**For Backend**</u>
+
+```sh
+  Set up JWT secret key as follow:-
+  rails secret (copy secret_key)
+
+  Linux/Mac user:-
+  export DEVISE_JWT_SECRET_KEY=secret_key
+
+  Window user:-
+  set DEVISE_JWT_SECRET_KEY=secret_key
+  or
+  $env:DEVISE_JWT_SECRET_KEY="secret_key"
+
+  rails server
+```
+
+<u>**For Frontend**</u>
+
+```sh
+  npm start
+```
+
+### Run tests
+
+To run tests, run the following command:
+
+```sh
+  Backend:-  rspec
+  Frontend:- npm test
+```
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+You can deploy this project using:
 
-### `npm run build` fails to minify
+Render or any other platform.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+👤 **Shubham Bhoyar**
+
+- GitHub: [@shubhambhoyar077](https://github.com/shubhambhoyar077)
+
+👤 **Muhammad Nafees**
+
+- GitHub: [@ngeelani48](https://github.com/ngeelani48)
+- Twitter: [@twitterhandle](https://twitter.com/ngeelani48)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/muhammad-nafees/)
+
+👤 **CarenSiya**
+
+- GitHub: [@carensiya ](https://github.com/Caren-Koroeny)
+- Twitter: [@carensiya](https://twitter.com/home)
+- LinkedIn: [@carensiya](www.linkedin.com/in/caren-siya-a89712180)
+
+👤 **Sohail Batoor**
+
+- GitHub: [@batoorsohail](https://github.com/batoorsohail)
+- Twitter: [@twitter](https://twitter.com/sohailBatoor)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/sohail-batoor-52429b230/)
+
+👤 **Ismail Munyentwari**
+
+- GitHub: [@Ismail-Munyentwari](https://github.com/ismailmunyentwari9)
+- LinkedIn: [@Ismail-Munyentwari](https://www.linkedin.com/in/munyentwari-ismail-754718191/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- Add some payment details.
+- Add the ability to set time for bookings.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/shubhambhoyar077/rideease-backend/issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ⭐️ Show your support <a name="support"></a>
+
+If you like this project, kindly give me a ⭐️
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+I would like to acknowledge:
+
+- [Microverse](https://www.microverse.org/) for the opportunity to work on this project
+- [The creative common](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=) for the design
+- Design from [Murat Korkmaz on Behance](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ❓ FAQ <a name="faq"></a>
+
+- **Is Rails still relevant?**
+
+  - [Yes, Rails is still popular among developer](https://blog.railwaymen.org/is-ruby-on-rails-dead)
+
+- **Is it easy to learn Ruby on Rails**
+
+  - [It is very easy to learn compared to most of the programming languages](https://careerkarma.com/blog/why-learn-ruby-on-rails/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
